@@ -32,6 +32,15 @@ public class Car {
             Is automático: true;
             ===================
             """;
+
+        System.out.println(message.formatted(
+            brand,
+            type,
+            numSeats,
+            numDors,
+            color,
+            isAuto));
+        
     }
 
 }   
