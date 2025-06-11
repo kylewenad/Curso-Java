@@ -2,19 +2,19 @@ public class Operators {
 
     //Operadores -> expresiones
 
-    //Asignación
+        //Asignación
 
-    // =
+        // =
 
-    //Aritméticos
+        //Aritméticos
 
-    // +
-    // -
-    // *
-    // /
-    // %
+         // +
+        // -
+        // *
+         // /
+        // %
 
-    // Comparación -> expresión boolean
+        // Comparación -> expresión boolean
         // == igual
         // != Distinto
         // >  >= mayor que

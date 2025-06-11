@@ -17,8 +17,8 @@ public class OutResults {
       // printf -> expresión, variables... (concatenación)
       System.out.printf("Hola %s %s\n¿como estás a tus %s años?\n", name, surname, age);
 
-      result = "Hola %s %s\n¿como estás a tus %s años?\n"
-      system.out.printf(result, name, surname, age);
+      result = "Hola %s %s\n¿como estás a tus %s años?\n";
+      System.out.printf(result, name, surname, age);
 
 
       //println -> template string
@@ -31,7 +31,7 @@ public class OutResults {
          Hola %s %s
          ¿como estás a tus %s años?
            """;
-      system.out.println(result.formatted( name, surname, age));
+      System.out.println(result.formatted( name, surname, age));
    }   
 
 }
