@@ -1,9 +1,9 @@
 
-public class Demo {
+public class HelloPepe {
 
     //'token' es el nombre de la varibale
-    //para escribir el nombre de la variable no se pueden usar
-    //que empiecen por números, guiones, 
+    //para escribir el nombre de la variable
+    //no se puede empezar por números, no se pueden usar guiones, ...
 
     
     public static void main(String[] args){

@@ -6,8 +6,8 @@ public class Car2 {
     private String brand;
     private char type;
     private int numSeats;
-    private String color;
     private int numDors;
+    private String color;
     private boolean isAuto;
     
     //Constructor
@@ -15,30 +15,32 @@ public class Car2 {
         String brand,
         char type,
         int numSeats,
-        String color,
         int numDors,
+        String color,
         boolean isAuto
         ) {
         
         numCars = numCars + 1;
+        // numCars creado para tener un identificador de coches creados
         this.id = numCars;
         this.brand = brand;
         this.type = type;
-        this.color = color;
+        this.numSeats = numSeats;
         this.numDors = numDors;
+        this.color = color;
         this.isAuto = isAuto;
         }
             void showInfo(){
             String message = """
-            ===================
-            Id: %s
-            Marca: %s
-            Tipo:
-            Número de asientos:
-            Número de puertas:
-            Color:
-            Is automático: true:
-            ===================
+            ======================
+            Id:                 %s
+            Marca:              %s
+            Tipo:               %s
+            Número de asientos: %s
+            Número de puertas:  %s
+            Color:              %s
+            Is automático:      %s
+            ======================
             """;
 
         System.out.println(message.formatted(

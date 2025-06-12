@@ -2,8 +2,8 @@ public class Car {
     String brand;
     char type;
     int numSeats;
-    String color;
     int numDors;
+    String color;
     boolean isAuto;
     
 
@@ -11,26 +11,27 @@ public class Car {
         String brand,
         char type,
         int numSeats,
-        String color,
         int numDors,
+        String color,
         boolean isAuto) {
             this.brand = brand;
             this.type = type;
-            this.color = color;
+            this.numSeats = numSeats; 
             this.numDors = numDors;
+            this.color = color;
             this.isAuto = isAuto;
     
         }
             void showInfo(){
             String message = """
-            ===================
-            Marca: %s
-            Tipo:
-            Número de asientos:
-            Número de puertas:
-            Color
-            Is automático: true;
-            ===================
+            ======================
+            Marca:              %s
+            Tipo:               %s
+            Número de asientos: %s
+            Número de puertas:  %s
+            Color:              %s
+            Is automático:      %s
+            ======================
             """;
 
         System.out.println(message.formatted(
