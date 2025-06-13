@@ -1,6 +1,7 @@
 public class EvenOdds {
     
     public static void mode1(String[] args) {
+        //maneras de imprimir en pantalla
     
         if (args.length == 0)    {
             System.out.println("Tienes que escribir un número en la línea de comandos");
@@ -35,7 +36,7 @@ public class EvenOdds {
 
     }
     public static void mode3(String[] args) {
-    if (args.length == 0) {
+        if (args.length == 0) {
             System.out.println("Tienes que añadir un entero en la línea de comandos");
             return;
         }      
@@ -48,7 +49,6 @@ public class EvenOdds {
         System.out.printf("El número %s es %s", number, result);
      
     }
-
 
 
     public static void mode4(String[] args) {
@@ -69,5 +69,5 @@ public class EvenOdds {
     public static void main(String[] args) {
         
         mode3(args);
-    
-}}
+    }
+}

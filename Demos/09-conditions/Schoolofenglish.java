@@ -46,10 +46,10 @@ public class Schoolofenglish {
             //int index = (studentAge <= 6) ? 0 :  (un ternario)
             //(studentAge <=8) ? 1 :
             //(studentAge <=10) ? 2 :
-            //(studentAge <=13) ? 3 :
-
-            System.out.println(messages[index]);
+            //(studentAge <=13) ? 3 : 4;
             }
+            System.out.println(messages[index]);
+            
         }
 
 }

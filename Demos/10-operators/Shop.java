@@ -7,7 +7,8 @@ public class Shop {
     //solo voy a tener una tienda y defino todo sobre esa tienda
     //variable constante, que no cambia nunca
     //"final" obliga a que sea constante la variable
-    //la constante se escribe en mayúsculas
+    //la constante se escribe en mayúsculas y separadas las palabras
+    //con un guión bajo (snapCase)
 
     static int getNumPacksByScanner() {
         //función "getNumPacksByScanner" creada.
@@ -57,6 +58,6 @@ public class Shop {
                 ------------------------
                 TOTAL:                      %s EU
                 """.formatted(numPacks, total, totalDiscount, totalShipping, finalPrice));
-                // %d para que salga el total en decimal
+                
     }
 }

@@ -33,7 +33,7 @@ public class WeekTranslator {
                 System.out.println("Wednesday");
                 break;
             case "jueves":
-                System.out.println("Thusday");
+                System.out.println("Thursday");
                 break;
             case "viernes":
                 System.out.println("Friday");
@@ -41,6 +41,7 @@ public class WeekTranslator {
             case "sabado":
             case "sábado":
                 System.out.println("Saturday");
+                break;
             case "domingo":
                 System.out.println("Sunday");
                 break;

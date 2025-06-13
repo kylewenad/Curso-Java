@@ -39,7 +39,7 @@ public class AgeGreetings {
                 } else if (age < 65) {
                     System.out.println("Hola, eres adulto");
                 } else {
-                    System.out.println("Hola, eres un jubilado)");
+                    System.out.println("Hola, eres un jubilado");
                 }
         }
             

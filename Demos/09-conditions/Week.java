@@ -2,7 +2,7 @@ public class Week {
     public static void main(String[] args) {
         //Valores discretos: Switch
         //Si tuviera condiciones entonces no se podría usar Switch
-        int day = 5;
+        int day = 3;
 
         //if(day == 1) {
             //System.out.println("Lunes");
