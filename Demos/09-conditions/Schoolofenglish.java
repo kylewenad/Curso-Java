@@ -15,10 +15,10 @@ public class Schoolofenglish {
         public static void main(String[] args) {
         
             String[] messages = {
-            "La clase Kinder son los Lunes y Miércoles de 16 a 17 horas",
-            "La clase 1st year son los Martes y Jueves de 16:30 a 17:30 horas",
-            "La clase 2nd year son los Martes y Jueves de 17:30 a 19 horas",
-            "La clase 3rd year son los Lunes y Miércoles de 17 a 18:30 horas",
+            "La clase del alumno es Kinder y son los Lunes y Miércoles de 16 a 17 horas",
+            "La clase del alumno es 1st year y son los Martes y Jueves de 16:30 a 17:30 horas",
+            "La clase del alumno es 2nd year y son los Martes y Jueves de 17:30 a 19 horas",
+            "La clase del alumno es 3rd year y son los Lunes y Miércoles de 17 a 18:30 horas",
             "No tenemos clases para mayores de 13 años"
             };
         

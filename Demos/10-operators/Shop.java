@@ -5,17 +5,15 @@ public class Shop {
     static final double PACK_PRICE = 100;
     //static significa que no instanciamos nada
     //solo voy a tener una tienda y defino todo sobre esa tienda
-    //variable constante, que no cambia nunca
-    //"final" obliga a que sea constante la variable
-    //la constante se escribe en mayúsculas y separadas las palabras
-    //con un guión bajo (snapCase)
+    //variable constante "final" obliga a que sea una constante la variable
+    //la constante se escribe en mayúsculas y con un guión bajo (snapCase) para separar las palabras
 
     static int getNumPacksByScanner() {
+        //una función es un constructor
         //función "getNumPacksByScanner" creada.
         //te 'devuelvo' un entero
-        //una función es un constructor
         Scanner scanner = new Scanner(System.in);
-        System.out.printf("Vendemos paquetes de pantalones y camisetas a %s euros\n", PACK_PRICE);
+        System.out.printf("Vendemos paquetes de pantalones y camisetas a %s euros el paquete\n", PACK_PRICE);
         // \n caracter de escape --> salto de línea
         System.out.println("Dime el número de packs que quieres comprar");
         int numPacks = scanner.nextInt();
@@ -31,7 +29,7 @@ public class Shop {
         //para ahorrame el último else
         double discount = 0.15;
         int costOfShippingByPack = 0;
-        double totalPrice;
+        
        
         if(numPacks < 5) {
             System.out.println("No se pueden comprar menos de 5 paquetes");
@@ -53,9 +51,11 @@ public class Shop {
         System.out.println("""
                 Número de paquetes:         %s
                 Precio total del producto:  %s
+                --------------------------------
                 Descuento aplicado:         %s
+                --------------------------------
                 Gastos de envío:            %s
-                ------------------------
+                --------------------------------
                 TOTAL:                      %s EU
                 """.formatted(numPacks, total, totalDiscount, totalShipping, finalPrice));
                 

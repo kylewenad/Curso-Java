@@ -1,6 +1,6 @@
+
 public class EvenOdds {
-    
-    public static void mode1(String[] args) {
+public static void mode1(String[] args) {
         //maneras de imprimir en pantalla
     
         if (args.length == 0)    {
@@ -26,10 +26,10 @@ public class EvenOdds {
             String result;
             if(number % 2 == 0) {
                 result = "par";
-                //System.out.printf("El número %s es par", number, result);
-                } else {
+                System.out.printf("El número %s es par", number, result);
+            } else {
                 result = "impar";
-                //System.out.printf("El número %s es impar", number, result);
+                System.out.printf("El número %s es impar", number, result);
                 
             }
         }
@@ -62,12 +62,12 @@ public class EvenOdds {
         // (condición) ? valor : valor
         // condición ternario
         String result = (number % 2) == 0 ? "par" : "impar";
-        System.out.println("El número %s es par");
+        System.out.printf("El número %s es %s", number, result);
 
 
     }
     public static void main(String[] args) {
         
-        mode3(args);
+        mode4(args);
     }
 }

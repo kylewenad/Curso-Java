@@ -46,12 +46,14 @@ public class Operators2 {
         
     public static void main(String[] args) {
         int number = 22;
-        number += 3;
+        number += 3; 
         //es lo mismo que number = number + 3
-        number ++;
+        number ++; // ++ es sumar 1
         System.out.println(number++); //primero imprime y después suma Postincremento
-        System.out.println(++number);//primero suma y después imprime Preincremento
-        System.out.println(number);
+        // Imprime 26 pero realmente es 27 porque hace la suma después*
+        System.out.println(++number);//primero suma y después imprime Preincremento //
+        // El resultado es 28, porque suma el resultado anterior (27) y lo imprime
+        System.out.println(number); // 28 porque es el resultado final después de las operaciones
         
         String job = "Developer";
         int age = 28;

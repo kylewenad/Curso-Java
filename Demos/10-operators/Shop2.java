@@ -56,7 +56,6 @@ public class Shop2 {
 
         }
         // if(totalPricePacks > 1000) {
-            //    discountPromotion = 0.1;
             //} 
             
             double totalPricePacks = numPacksPants * PACK_PRICEPANTS + numPacksTshirts * PACK_PRICETSHIRTS;
@@ -65,8 +64,8 @@ public class Shop2 {
             double finalPrice = totalPricePacks - totalDiscount + totalShipping;
             
             if(totalPricePacks >= 1000) {
-                double discountPromotion = totalPricePacks * 0.1;
-                double finalPricePromotion = finalPrice - (finalPrice * discountPromotion); 
+                double discountPromotion = 0.1;
+                double finalPricePromotion = finalPrice - (totalPricePacks * discountPromotion); 
                
                 System.out.printf("""
                 Nº paquetes de pantalones:  %d
