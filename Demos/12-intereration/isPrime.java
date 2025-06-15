@@ -23,8 +23,8 @@ public class isPrime {
     }
         public static void main(String[] args) {
         int number = getNumberByScanner();
-        String message = isPrime(number);
-            ? "%s SI es primo"
+        String message =
+            ? "%s SI es primo";
             ? "%s No es primo";
         System.out.println(message, number);
         

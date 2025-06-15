@@ -44,12 +44,17 @@ public class Calculator {
 
         int num1 = getInteger("Dime un número entero");
         int num2 = getInteger("Dime otro número entero");
-
+        
         System.out.printf("Operaciones con %s y %s\n", num1, num2);
+        System.out.printf("Suma %s + %s = ", num1, num2);
         showResult("suma", add(num1, num2));
+        System.out.printf("Resta %s - %s = ", num1, num2);
         showResult("resta", subtraction(num1, num2));
+        System.out.printf("Multiplicación %s * %s = ", num1, num2);
         showResult("multiplicacion", multiply(num1, num2));
+        System.out.printf("División %s / %s = ", num1, num2);
         showResult("división", intDivide(num1, num2));
+        System.out.printf("Resto de la división = ", num1, num2);
         showResult("resto", restDivision(num1, num2));
         //showResult sólo demuestra el resultado de la operación
 

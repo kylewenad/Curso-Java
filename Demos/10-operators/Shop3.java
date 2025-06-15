@@ -34,7 +34,6 @@ public class Shop3 {
         int numPacksPants = numPacks[0];
         int numPacksTshirts = numPacks[1];
         int totalNumPacks = numPacksPants + numPacksTshirts;
-        int getPromotion;
 
         //control + d para seleccionar varias cosas a la vez
         double discount = 0;
@@ -46,16 +45,16 @@ public class Shop3 {
             System.out.printf("No se pueden comprar menos de 5 paquetes", numPacks);
             return;
             
-        } else if(totalNumPacks < 10) {
+            } else if(totalNumPacks < 10) {
             costOfShippingByPack = 10;
             discount = 0.05;
-        } else if(totalNumPacks < 20) {
+            } else if(totalNumPacks < 20) {
             costOfShippingByPack = 5;
             discount = 0.1;
-        } else if(totalNumPacks < 20) {
+            } else if(totalNumPacks < 20) {
             costOfShippingByPack = 0;
             discount = 0.15;
-        } 
+            } 
         // if(totalPricePacks > 1000) {
             //    discountPromotion = 0.1;
             //} 
@@ -65,43 +64,37 @@ public class Shop3 {
             double totalShipping = totalNumPacks * costOfShippingByPack;
             double finalPrice = totalPricePacks - totalDiscount + totalShipping;
             
-            discountPromotion = 1000 * 0,1;
+            discountPromotion = 0;
+            double promotion = 1000 - totalPricePacks;
             String line1 = "PROMOCIÓN NO APLICADA";
-            String line2 = "Cantidad que falta";
+            String line2 = "Cantidad que falta \npara aplicar la promoción";
 
             if(totalPricePacks >= 1000) {
                 discountPromotion = totalPricePacks * 0.1;
-                double finalPricePromotion = finalPrice - discountPromotion; 
-                line1 = "PROMOCIÓN";
-                line2 = "Descuento";
+                promotion = finalPrice - discountPromotion; 
+                line1 = "PROMOCIÓN APLICADA";
+                line2 = "Precio TOTAL PROMOCIÓN";
                 // %d para que salga el total en enteros
                 // %f para poner decimales
                 // %.2f --> el 2 es para que haya dos decimales} else {
-                
-            } else {
+                } 
 
-                promotion = 1000 - totalPricePacks;
-                
                 
                 System.out.printf("""
                 Nº paquetes de pantalones:  %d
                 Nº paquetes de camisetas:   %d
-                Nº paquetetes total:        %D
+                Nº paquetetes total:        %d
 
-                Precio total del producto:  %.2f
-                
-                Descuento aplicado:         %.2f
-                
-                Gastos de envío:            %.2f
+                Precio total del producto:  %.2f EU
+                Descuento aplicado:         %.2f EU
+                Gastos de envío:            %.2f EU
                 --------------------------------
                 TOTAL:                      %.2f EU
                 --------------------------------
                 %s
-                %s:         %.2f EU
-                """.formatted(numPacksPants, numPacksTshirts, numPacks, totalPricePacks, totalDiscount, totalShipping, finalPrice, line1, line2, promotion));
-        }
+                %s: %.2f EU
+                """.formatted(numPacksPants, numPacksTshirts, totalNumPacks, 
+                totalPricePacks, totalDiscount, totalShipping, finalPrice, line1, line2, promotion));
         
-
-       
     }
 }
