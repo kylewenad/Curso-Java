@@ -13,6 +13,7 @@ public class RandomNumbers {
         //randomMaker -> Para que devuelva un números con los valores que queramos
         //ej con números enteros
         int random2 = randomMaker.nextInt(9) + 1;
+        // un número entre el 1 y 9 incluidos, +1 indica que empiece desde el 1 y no desde el 0
         System.out.println(random2);
     }
 }

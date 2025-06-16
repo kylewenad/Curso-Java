@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class Multiplication7 {
 
-    static int END = 10;
+    static final int END = 10;
     
     static int whatTable() {
         Scanner scanner = new Scanner(System.in);

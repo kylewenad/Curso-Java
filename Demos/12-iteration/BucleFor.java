@@ -47,7 +47,7 @@ public class BucleFor {
         //puede llamarse de cualquier de otra forma
         // pero por norma general se escribe i.
         // < args.length; i++ -> hasta dnde quiera
-        //ej int i =0; <10; i++; va dando vueltas de 1 en 1 (i++) hasta la 10
+        //ej int i =0; i<10; i++; va dando vueltas de 1 en 1 (i++) hasta la 10
         for (int i = 0; i < LIMIT; i++) {
         //variables y propiedades
         showInfo(i);

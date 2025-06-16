@@ -4,7 +4,7 @@ public class Primes {
     
     public static int getNumberByScanner(String message) {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("");
+        System.out.println(message);
         int number = scanner.nextInt();
         System.out.println("");
         scanner.close();
@@ -18,17 +18,17 @@ public class Primes {
         for (int i = 2; i < number; i++) {
             if (number % i == 0) {
                 return false;
-            }
-            
+            } 
         }
         return true;
     }
 
     private static void showInfo(int number) {
         //show suele ir con void, que no devuelve nada
-        String C
-        
-
+        String message = isPrime(number)
+                ? "%s SI es primo"
+                : "%s NO es primo";
+        System.out.printf(message, number);
     }
 
     public static void main(String[] args) {
@@ -37,7 +37,7 @@ public class Primes {
         //showInfo(number);
         //intermediario
         //opcion 2
-        String message = "Dime un número entero para saber si es primo";
+        String message = "Dime un número entero para saber si es un número primo";
         int number = getNumberByScanner(message);
         showInfo(number);
     }

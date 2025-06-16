@@ -38,7 +38,10 @@ Para guardar varios datos:
 	Sentencia de asignación
 	int number = 1
 	1	2	   3 4
-	= (es el operador de asignacion)
+		"1" es el tipo
+		"2" es el nombre del tipo
+		"=" (es el operador de asignacion)
+		"4" es el dato
 
 	4 partes de una asignación
 

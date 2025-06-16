@@ -20,7 +20,7 @@ public class BucleWhile {
         }
     }
    
-     static void whileSampleWithCounter () {
+    static void whileSampleWithCounter () {
         boolean sentinel = true;
         int i = 0;
         while (sentinel) {
@@ -69,7 +69,6 @@ public class BucleWhile {
     }
 
     public static void main(String[] args) {
-        
         
        //whileSample(); 
         whileSampleWithCounter();

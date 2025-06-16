@@ -1,4 +1,4 @@
-public class Exercise {
+public class ReverseAndRemove {
 
     static void countDown(){
         for(int i = 10; i > 0; i--) {
@@ -37,14 +37,15 @@ public class Exercise {
     }
   
     public static void main(String[] args) {
-        String test = "Prueba";
+        countDown();
+        
+        String test = "No se como se hace";
         String reverse = reverseString2(test);
         String removed = removeFirstLast(test);
         System.out.println("Original: " + test);
-        System.out.println("Removed " + removed);
-        System.out.println("Reverse " + reverse);
+        System.out.println("Eliminado " + removed);
+        System.out.println("Reves: " + reverse);
     
-        countDown();
 
     }   
 }
