@@ -12,14 +12,29 @@ import java.util.Scanner;
 
 public class MatrixUser {
 
+    static String[][] getData() {
+        String[][] ingredients = new String[3][3];
+        Scanner scanner = new Scanner(System.in);
+        for (int i = 0; i < ingredients.length; i++) {
+             System.out.printf("Fila número %s\n", i+1);
+            for (int j = 0; j < ingredients[0].length; j++) {                
+                 System.out.printf("Dime el ingrediente %s\n", j+1);
+                 ingredients[i][j] = scanner.nextLine();
+             }
+            System.out.println("Vamos a la siguiente fila");
+        }
+        scanner.close();
+        return ingredients; 
+    }
+
     static String[][] getIngredientsByScanner() {
     //String de Arrays matriz de dos dimensiones
         String[][] ingredients = new String[3][3];
         
         String [] messages = {
-            "Dime el ingrediente 1",
-            "Dime el ingrediente 2",
-            "Dime el ingrediente 3",
+            "Dime ingredientes sólidos\n",
+            "Dime ingredientes líquidos\n",
+            "Dime más ingredientes sólidos\n",
         };
         
         Scanner scanner = new Scanner(System.in);
@@ -29,8 +44,7 @@ public class MatrixUser {
         // para el usuario siempre se empieza por la fila 1 (i+1)
         //int ingredientNumber = 1;
             for(int j = 0; j < ingredients[0].length; j++) {
-                System.out.println("hola no entiendo nadasdfas");
-
+                System.out.printf("Ingrediente %s\n", j+1);
                 ingredients[i][j] = scanner.nextLine();
              }  
              
@@ -38,7 +52,7 @@ public class MatrixUser {
                 System.out.println("Vamos a la siguiente fila");
              } else {
                 System.out.println("Gracias por participar");
-                System.out.println("---------------------");
+                System.out.println("--------------------------------------");
              }
          }
         scanner.close();
@@ -53,19 +67,28 @@ public class MatrixUser {
         }
         return selectedIngredients;
     }
+
     static void showIngredients(String [][] ingredients) {
+        
+        System.out.println("Estos son tus ingredientes:");
+        
         for (String[] row: ingredients) {
-            for (String ingredientString : row) {
-                System.out.printf( "%-10s", ingredientString);
+            for (String ingredient : row) {
+                System.out.printf( "%-15s", ingredient);
                 // -10 es para que guarde 10 espacios
             }
+            System.out.println("");
         }
     }
-    static void showIngredients(String[] ingredients); {
+
+    static void showIngredients(String[] ingredient) {
+        System.out.println("--------------------------------------");
+        System.out.println("Estos son tus ingredientes aleatorios:");
 
         for (String item : ingredient) {
-            System.out.println();
+            System.out.printf("%-15s ", item);
         }
+        System.out.println("");
     }
 
     public static void main(String[] args) {

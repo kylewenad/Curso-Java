@@ -5,24 +5,24 @@ public class E7Prime {
 
     static final int VERIFY_PRIME = 14;
 
-    static boolean Question(boolean number) {
-        for (int i = 1; i <= number; i++) {
-            if (number % i == 0) {
-            return true;
+    static boolean isPrime(int VERIFY_PRIME) {
+        for (int i = 1; i <= VERIFY_PRIME; i++) {
+            if (VERIFY_PRIME % i == 0) {
+            return false;
             }
         }
-        return false;
+        return true;
     }
 
-    static void message(boolean number){
-        String message = Question(number)
+    static void message(int verifyPrime){
+        String message = isPrime(VERIFY_PRIME)
         ? "%s es PRIMO"
         : "%s no es PRIMO";
         System.out.printf(message, VERIFY_PRIME);
     }
 
     public static void main(String[] args) {
-        boolean number = Question(VERIFY_PRIME);
-        message(number);
+        //isPrime(VERIFY_PRIME);
+        message(VERIFY_PRIME);
     }
 }

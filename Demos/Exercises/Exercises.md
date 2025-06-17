@@ -4,11 +4,8 @@ Crea una función que saque por consola el área de un rectángulo de dimensione
 Crea una función que imprima por consola un número al azar entre 0 y 10.
 Crea una función que reciba un número como parámetro e imprima por consola si el número dado es par o impar.
 Crea una función que imprima por consola la tabla de multiplicar de un número introducido como parámetro.
-
 Crea una función que reciba un número por parámetros e imprima por consola si el número recibido es un número primo
-
 Crea una función que reciba un parámetro de tipo string e imprima por consola el string revertido. (ejemplo: 'casa' => 'asac).
-
 Crea una función que elimine el primer y último caracter de un string recibido por parámetros.
 
 Escribe una función que reciba una palabra y revise si es un palíndromo.
