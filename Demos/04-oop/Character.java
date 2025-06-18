@@ -14,4 +14,9 @@ public class Character {
         this.name = name;
         this.type = type;
     }
+
+    public static boolean isLetter(char letterA) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'isLetter'");
+    }
 }

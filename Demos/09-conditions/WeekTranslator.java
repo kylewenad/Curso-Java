@@ -22,6 +22,7 @@ public class WeekTranslator {
             //si están en mayúsculas también las aceptaría
             //si hay una sóla letra en mayúscula también lo aceptaría
             //signica que pone toda la palabra en minúsculas
+            //switch cambia "day" el día lunes por Monday
             case "lunes":
                 System.out.println("Monday");
                 break;

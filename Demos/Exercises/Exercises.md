@@ -7,11 +7,8 @@ Crea una función que imprima por consola la tabla de multiplicar de un número 
 Crea una función que reciba un número por parámetros e imprima por consola si el número recibido es un número primo
 Crea una función que reciba un parámetro de tipo string e imprima por consola el string revertido. (ejemplo: 'casa' => 'asac).
 Crea una función que elimine el primer y último caracter de un string recibido por parámetros.
-
 Escribe una función que reciba una palabra y revise si es un palíndromo.
-
 Escribe una función que reciba una frase y revise si es un palíndromo.
-
 Crea una función que cuente las vocales que contiene una palabra dada por parámetros.
 
 Crea una función que verifique si una cadena de texto recibida por parámetros es un pangrama (contiene todas las letras del abecedario).
