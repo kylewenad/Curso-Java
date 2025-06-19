@@ -1,5 +1,5 @@
 public class E9RemoveLetter {
-//Crea una función que elimine el primer y último caracter de un string recibido por parámetros.
+//Crea una función que elimine el primer y último carácter de un string recibido por parámetros.
 
     static String removeLetter(String lion) {
         String result = "";
@@ -13,6 +13,6 @@ public class E9RemoveLetter {
     public static void main(String[] args) {
         String animal = "Leon";
         System.out.printf("%s sin la primera y ultima letra es ", animal);
-        String remove = removeLetter(animal);
+        removeLetter(animal);
     }
 }
