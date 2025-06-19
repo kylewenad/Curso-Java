@@ -31,9 +31,9 @@ public class Game {
 
 
     private static final String[][] RESULT = {
-        {EQUALS, USER, COMPUTER},
-        {COMPUTER, EQUALS, USER},
-        {USER, COMPUTER, EQUALS},
+        {EQUALS, USER, COMPUTER}
+        {COMPUTER, EQUALS, USER}
+        {USER, COMPUTER, EQUALS}
     };
 
     private static byte userDice;

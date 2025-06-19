@@ -8,19 +8,36 @@ public class Factorial {
 
     //solo existen factoriales de tipo entero
 
-    static int calculateFactorial(int number) {
+    static long calculateFactorial(long number) {
+        //enetero largo -> long
         if (number < 0) {
-            number = number + -1;
+            number = number * -1;
+            //no se puede calcular el factorial de un número negativo
+            //para que se pueda calcuar los numeros negativos
+            //lo multiplicamos por -1 para que esté el numero en positivo
         }
-        int result = 1;
+        long result = 1;
 
-        for (int i = number; i > 0; i--){
+        for (long i = number; i > 0; i--){
         result = result * i;
         }
     return result;
     }
 
+    static long recursiveFactorial(long number) {
+        //recursivo: dentro de una funcion ejecuta la misma funcion
+        //para que pare el bucle se le añade un if para pararlo
+        if (number == 1) {
+            return number;
+        }
+        long result = number * recursiveFactorial(number-1);
+
+        return result;
+    }
+
     public static void main(String[] args) {
-        System.out.println(calculateFactorial(20));
+        System.out.println(calculateFactorial(10));
+        System.out.println(recursiveFactorial(10));
+        //si el resultado es 0 es que la maquina ha desbordado el numero
     }
 }
