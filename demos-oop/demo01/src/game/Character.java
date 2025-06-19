@@ -6,6 +6,7 @@ public class Character {
     
     public static void updateNumOfCharacter(){
         numOfCharacter++;
+        System.out.printf("Personajes creados: %s\n\n", numOfCharacter);
     }
     
     private String name;
@@ -17,14 +18,14 @@ public class Character {
 
     public void showCharacter() {
         String message = """
-            ======================
+            ========================
             Nombre:              %s
             Especie:             %s
             Vida:                %s
             Fuerza:              %s
-            Rol:                 %s
+            Roll:                %s
             ¿Es un zombie?:      %s
-            ======================
+            ========================
             """;
 
         System.out.println(message.formatted(
@@ -36,18 +37,18 @@ public class Character {
             isZombie));
     }
     
-    private Character(String name, char specie, int live, int strength, String roll, boolean isZombie){
+    public Character(String name, char specie, int live, int strength, String roll, boolean isZombie){
         System.out.println("Se ha creado un personaje nuevo");
         
         this.name = name;
-       // this.char = specie;
+        this.specie = specie;
         this.live = live;
         this.strength = strength;
         this.roll = roll;
-        this.isZombie = true;
+        this.isZombie = isZombie;
 
-        updateNumOfCharacter();
         showCharacter();
+        updateNumOfCharacter();
     }
     
 }
