@@ -1,12 +1,16 @@
 package base;
-//crear un método constructor suele llamarse igual que la clase
+//crear un método constructor se llama igual que la clase
 //las propiedades son siempre PRIVADAS
+//para que el usuario no pueda cambiar las propiedades
 //ámbitos de la visibilidad: public, private, protect
 //un objeto expone una interfaz
 
 // getter método que da información
 // setter método puede cambiar el valor
 // si una propiedad no tiene métodos getter ni setter, no son visibles
+
+// maven y gradle gestos de paquetes de java
+
 public class Person {
 
     // Propiedades static o de clase
