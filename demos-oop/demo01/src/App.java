@@ -45,20 +45,21 @@ public class App {
         Character.showList();
     }
 
-    static void shop(){
+    static void company(){
         
-        Data shop = new Data("Zara", "Plaza Castilla, Madrid", 91345345);
-        shop.showData();
+        Data company = new Data("Zara", "Plaza Castilla, Madrid", 91345345);
+        company.showData();
+        Data client = new Data("Ropa de Sara", "calle hermosilla, 12, Madrid", 915501312);
+        client.showDataClient();
 
-
-        Products.tshirt();
+        Products.showProducts();
     }
   
 
     public static void main(String[] args) {
         //playWithPersons();
         //prepareGame();
-        shop();
+        company();
     }
 }
          

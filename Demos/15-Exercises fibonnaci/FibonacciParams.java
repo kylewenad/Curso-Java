@@ -16,6 +16,7 @@ public class FibonacciParams {
             //next = next+ prev;
             //prev = next - prev;
             }
+            return serie;
     }
     
     static void showFibonacci(int limit, List<Integer> serie) {
@@ -26,11 +27,11 @@ public class FibonacciParams {
 
     static int askLimit()  {
         String message = "Dime el número en el que quieres que pare la serie de Fibonnaci";
-        Scanner scanner = new Scanner (System.in) {
+        Scanner scanner = new Scanner (System.in);
         int limit = scanner.nextInt();
-        System.out.printf(message);
+        System.out.println(message);
         System.out.println("");
-        }
+        
     scanner.close();
     return limit;
     }
@@ -38,18 +39,18 @@ public class FibonacciParams {
     static void askContinue() {
         Scanner scanner = new Scanner(System.in);
         boolean wantContinue = true;
+        int limit = askLimit();
+        List<Integer> serie = calculateFibonacci(limit);
 
         String[] messages = {
         "¿Quieres continuar (S/N)?",
         "Gracias por todo"
-        }
-
+        };
+        
+        System.out.printf(messages[0]);
+        String answer = scanner.nextLine();
         while(wantContinue) {
-            int limit = askLimit();
-            List<Integer> serie = calculateFibonacci();
 
-            System.out.println(messages[0]);
-            String answer = scanner.nextLine();
             if(
                 answer.toLowerCase().equals("n") ||
                 answer.toLowerCase().equals("no")
@@ -61,9 +62,9 @@ public class FibonacciParams {
         System.out.println(messages[1]);
     }
 
-    }
+    
 
     public static void main(String[] args) {
         askContinue();
         }    
-    }
+}

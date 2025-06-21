@@ -1,41 +1,44 @@
 package acountingZara;
 
 public class Products {
-    private static String message = """
+    
+        private static String tshirtName = "Camiseta";
+        private static String tshirtDescription = "De lana";
+        private static int tshirtPrice = 15;
+        private static int numberOfTshirts;
+    
+        private static String pantsName = "Pantalones";
+        private static String pantsDescription = "vaqueros";
+        private static int pantsPrice = 30;
+        private static int numberOfPants;
 
-            Producto:       %s
-            Descripción:    %s
-            Precio:                %s EU
+        private static String shoesName = "Zapatos";
+        private static String shoesDescription = "running";
+        private static int shoesPrice = 50;
+        private static int numberOfShoes;
+    
+        private static String message = """
+
+            Producto:       %s %s
+            Número de unidades:           %s
+            Precio unidad:                %s EU
+            Precio total:                 %s
                 """;
 
-    public static void tshirt() {
-        String name = "Camiseta";
-        String description = "De lana";
-        int price = 15;
-        
-        System.out.println(message.formatted(name, description, price));
-    }
+        private static int totalPriceTshirt = numberOfTshirts * tshirtPrice;
+        private static int totalPrices(){
+            int totalPricePants = numberOfPants * pantsPrice;
+            int totalPriceShoes = numberOfShoes * shoesPrice;
 
-    public static void pants() {
-        String name = "Pantalones";
-        String description = "vaqueros";
-        int price = 30;
+            int totalPrice = totalPriceTshirt + totalPricePants + totalPriceShoes;
+            
+            return totalPrice;
         
-        System.out.println(message.formatted(name, description, price));
-    }
+        }
+        
+        public static void showProducts(){
+            System.out.println(message.formatted(tshirtName, tshirtDescription, numberOfTshirts, tshirtPrice, totalPriceTshirt));
+        }
     
-    public static void shoes() {
-        String name = "Zapatos";
-        String description = "running";
-        int price = 50;
-        System.out.println(message.formatted(name, description, price));
-    }
-
-    public static void showProducts(){
-        tshirt();
-        pants();
-        shoes();
-    }
-
     }
 

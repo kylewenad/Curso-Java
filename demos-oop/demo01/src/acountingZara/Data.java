@@ -1,27 +1,47 @@
 package acountingZara;
 
-public class Data {
-    private static String name;
-    private static String address;
-    private static int phoneNumber;
-    private static int nif;
-    private static String client;
+import java.util.UUID;
 
-    String message = """
-            Nombre de %s:          %s
+public class Data {
+   
+    private String name;
+    private String address;
+    private int phoneNumber;
+    private UUID nif;
+    private String client;
+
+    String messageCompany = """
+            ==================================
+            Empresa:                %s
+            Nif: %s
+            Dirección:              %s
+            Teléfono:               %s
+            """;
+    
+    String messageClient = """
+            ==================================
+            Cliente:                %s
+            Nif: %s
             Dirección:              %s
             Teléfono:               %s
             """;
 
     public Data(String name, String address, int phoneNumber){
         this.name = name;
+        this.nif = UUID.randomUUID();
         this.address = address;
         this.phoneNumber = phoneNumber;
-        this.nif = nif;
     }
-   public void showData(){
+    public void showData(){
         
-        System.out.println(message.formatted(client,name, address, phoneNumber));
+        System.out.println(messageCompany.formatted(name, nif, address, phoneNumber));
+
+    }
+
+    public void showDataClient(){
+        
+        System.out.println(messageClient.formatted(name, nif, address, phoneNumber));
+
     }
 
 }
