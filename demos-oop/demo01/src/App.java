@@ -1,6 +1,7 @@
-import acountingZara.Data;
-import acountingZara.Products;
+import base.Dog;
 import base.Person;
+import base.Pet;
+import base.Square;
 import game.Character;
 import game.Role;
 import game.Species;
@@ -45,21 +46,43 @@ public class App {
         Character.showList();
     }
 
-    static void company(){
-        
-        Data company = new Data("Zara", "Plaza Castilla, Madrid", 91345345);
-        company.showData();
-        Data client = new Data("Ropa de Sara", "calle hermosilla, 12, Madrid", 915501312);
-        client.showDataClient();
+    static void playPets () {
 
-        Products.showProducts();
+        Dog pet1 = new Dog("Lua", 4);
+        System.out.println(pet1 instanceof Dog);
+        //System.out.println(pet1 instanceof Pet);
+        //System.out.println(pet1 instanceof Object);
+        //Object: clase es hija de object es herencia de object
+        
+        pet1.sleep();
+        pet1.eat();
+
     }
   
+    
 
     public static void main(String[] args) {
         //playWithPersons();
         //prepareGame();
-        company();
+        //playPets();
+        Square sq = new Square(3);
+        String type = "Cuadrado";
+        System.out.println(sq instanceof Object);
+        System.out.println(type instanceof Object);
+        System.out.println(type);
+        System.out.println(type.toString());
+        System.out.println(sq);
+        //System.out.println(sq.toString());
+        //sale por pantalla su referencia, por lo tanto reescribimos toString
+        //para que imprima en pantalla directamente el objeto "Square {side: 3}"
+ 
+
+        Square sq2 = new Square(3);
+        System.out.println(sq == sq2);
+
+        System.out.println(sq2);
+
+        System.out.println(sq.equals(sq2));
     }
 }
          
