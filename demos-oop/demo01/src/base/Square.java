@@ -14,10 +14,10 @@ public class Square {
         "Square {side: %s}".formatted(side);
     }
 
-    @Override
-    public String equals(){
+    //@Override
+    //public String equals(){
         
-    }
+   // }
 
 
 }

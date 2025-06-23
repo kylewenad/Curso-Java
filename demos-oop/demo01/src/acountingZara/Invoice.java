@@ -45,11 +45,11 @@ public class Invoice {
     }
 
     public Invoice (DataCompany client, Product product, int amount,  Payment paymentMethod) {
-        this.(client, product, amount, 1.21, paymentMethod);
+        this(client, product, amount, 1.21, paymentMethod);
     }
     
     public Invoice (DataCompany client, Product product, int amount) {
-        this(client, product, amount, 1.21, Payment.TARJETA);
+        this(client, product, amount, 1.21, Payment.TRANSFER);
     }
 
 
@@ -70,27 +70,59 @@ public class Invoice {
     private String renderItems() {
         String itemsList = "";
         for (Item item : items) {
-            itemsList += item.renderItems();
+            itemsList += item.renderInvoiceLine();
         }
+        return itemsList;
     }
-
-    private 
-        double totalWithIVA = calculatePrice();
-        double totalIVa = totalWithIva - total;
 
     private String renderPayment() {
-        String invoice = """
-            %s
-            %s        
+        double totalWithIva = calculatePrice();
+        double totalIva  = totalWithIva - total;
 
-            Factura %s
-                """;
+        String ivaPercentage = String.format("%.0f", (this.iva - 1) * 100) + "%";
+         return """
+                Total (sin iva): %s
+                Iva (%s): %s
+                Total (con iva): %s
+                ----------------------------------------------
+
+                Forma de pago: %s
+                """.formatted(
+                    NF.format(total), 
+                    ivaPercentage, 
+                    NF.format(totalIva), 
+                    NF.format(totalWithIva), 
+                    paymentMethod.toString());
+    
     }
 
-    .formatted(
-        Brand.renderHeaderCompany(),
-        client.renderClient(),
-        id,
+    public void printInvoice() {
 
-    )
+        String invoice = """
+            %s
+            %s
+
+            Factura %s
+            Fecha: %s
+            ------------------------------------------------------------------------
+
+            %s
+
+            ------------------------------------------------------------------------
+            %s
+            ----------------------------------------------
+            Gracias por su compra
+            ----------------------------------------------
+
+            """.formatted(
+                BRAND.renderHeaderCompany(), 
+                client.renderClient(), 
+                id, 
+                renderDate(), 
+                renderItems(), 
+                renderPayment());
+
+        System.out.println(invoice);
+    }
+
 }

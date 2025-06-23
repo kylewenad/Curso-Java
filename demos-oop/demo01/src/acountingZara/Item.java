@@ -14,49 +14,33 @@ public class Item {
     private int value;
     //son públicas dentro del paquete "defold"
 
+    public int getValue() {
+        return value;
+    }
+    
     public Item(Product product, int amount){
         this.product = product;
         this.amount = amount;
-        this.value = calculatePrice();
-
-
+        this.value = calculatePrice(amount);
     }
 
-   
-    private int calculatePrice() {
-        return items * amount;
+    private int calculatePrice(int items) {
+        return items * product.getUnityPrice();
     }
 
+    String renderInvoiceLine() {
 
-
-
-    private static int totalPriceTshirt = numberOfTshirts * tshirtPrice;
-        private static int totalPrices(){
-            int totalPriceTrousers = numberOfTrousers * trousersPrice;
-            int totalPriceShoes = numberOfShoes * shoesPrice;
-
-            int totalPrice = totalPriceTshirt + totalPriceTrousers + totalPriceShoes;
+        String start = "%-20s : %s u. a %s". formatted(
+            product.getSku() + " " + product.getName(), amount,
+            NF.format(product.getUnityPrice()));
             
-            return totalPrice;
-        
-        }
-        
-        public static void showItem(){
-            System.out.println(message.formatted(tshirtDescription, numberOfTshirts, tshirtPrice, totalPriceTshirt));
-        }
-        public static int getTotalPriceTshirt() {
-            return totalPriceTshirt;
+        String message = """
+            %50s........Total %s
+            """.formatted(
+            start,
+            NF.format(value));
+            return message;
         }
 
-        String renderInvoiceLine() {
-
-            String start = "%-25s : %s u. a %s". formatted(
-                product.getSku() + " " + product.getName
-            )
-        }
-
-        public int getValue() {
-            return value;
-        }
 }
 

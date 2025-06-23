@@ -1,24 +1,28 @@
+import java.util.HashSet;
+import java.util.Set;
+
 public class E13Pangram {
     //Crea una función que verifique si una cadena de texto recibida por parámetros
     //es un pangram (contiene todas las letras del abecedario).
 
     //es un pangram?
     //verificar pangram (contiene todas las letras) -> bucle
-    static final String[] ABC = {"a","b","c","d","e","f","g","h","i","j","k","l","m","n","ñ","o","p","q","r","s","t","u","v","w","x","y","z"};
 
-    static boolean isPangram(String test) {
-        //if (test == abecedario) {
-          //  return true;
-        //}
+    static boolean isPangram(String text) {
+        
+        text = text.toLowerCase();
 
-        //return false;
-    //}
-        for (String test2 : ABC) {
-            System.out.println(ABC);
-            if (char test = char ABC);
+        Set<Character> letters = new HashSet<>();
+
+        for (char c : text.toCharArray()) {
+            System.out.println(letters);
+            if ( c >= 'a' && c <= 'z'){
+                letters.add(c);
+            }
+            return false;
         }
         
-        return false;
+        return letters.size() == 26;
             
         }
 
