@@ -14,7 +14,7 @@ public class Economy {
         // Crea una empresa
         DataCompany company = new DataCompany("Zara", "55544433Z", "Paseo de la Castellana 32, Madrid", 913456789);
 
-        DataCompany client = new DataCompany("Ropa de Sara", "57936624P", "calle hermosilla, 12, Madrid", 915501312);
+        DataCompany client = new DataCompany("Ropa de Sara", "57936624P", "calle Bravo Murillo, 12, Madrid", 915501312);
          Product product = new Product("C236", "Camiseta", 3);
         
         // Crea una factura para la empresa

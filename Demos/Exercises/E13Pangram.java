@@ -8,13 +8,19 @@ public class E13Pangram {
     //es un pangram?
     //verificar pangram (contiene todas las letras) -> bucle
 
-    static boolean isPangram(String text) {
+    static boolean isPangram(String test) {
         
-        text = text.toLowerCase();
+        test = test.toLowerCase();
+
+        for (char i = 0; i < test.length(); i++) {
+            System.out.println(test.charAt(i));
+            if (i >= 'a' && i <= 'z');
+            
+        }
 
         Set<Character> letters = new HashSet<>();
 
-        for (char c : text.toCharArray()) {
+        for (char c : test.toCharArray()) {
             System.out.println(letters);
             if ( c >= 'a' && c <= 'z'){
                 letters.add(c);

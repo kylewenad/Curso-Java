@@ -12,7 +12,7 @@ public class Item {
     private Product product;
     private int amount;
     private int value;
-    //son públicas dentro del paquete "defold"
+    //son públicas dentro del paquete "default"
 
     public int getValue() {
         return value;
