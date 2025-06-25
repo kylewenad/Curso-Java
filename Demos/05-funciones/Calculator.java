@@ -49,7 +49,7 @@ public class Calculator {
         System.out.printf("Operaciones con %s y %s\n", num1, num2);
         showResult("suma", add(num1, num2));
         showResult("resta", subtraction(num1, num2));
-        showResult("multiplicacion", multiply(num1, num2));
+        showResult("multiplicación", multiply(num1, num2));
         showResult("división", intDivide(num1, num2));
         showResult("resto", restDivision(num1, num2));
         //showResult sólo demuestra el resultado de la operación

@@ -1,6 +1,5 @@
 import base.Square;
 
-
 //unboxing se refiere a la conversión automática de un objeto de una clase envoltorio (como Integer)
 // a su tipo primitivo correspondiente (como int). 
 //Esto permite utilizar objetos donde se espera un valor primitivo, simplificando el código.
@@ -52,6 +51,7 @@ public class Equality {
          //num1 + num2 tendría que ser un int, por lo que si queremos que el resultado sea byte
          //hay que especificarlo
          byte result = (byte) (num1 + num2);
+         //el resultado lo convierte a byte
          System.out.println(result);
          String text = "Result ";   
          System.out.println(text + (num1 + num2));

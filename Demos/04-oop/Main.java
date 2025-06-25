@@ -1,5 +1,5 @@
 //Método main
-//No se puede tener más de una variable en un mismo fichero
+//No se puede tener más de una clase en un mismo fichero
 
 public class Main {
     public static void main(String[] args) {

@@ -2,16 +2,16 @@ import base.Square;
 
 public class Functions {
 
-    public static Square Foo(Square sqFoo) {
+    public static Square Foo(Square sqFoo) throws CloneNotSupportedException {
         
-        Square newSq = new Square(sqFoo);//objeto clonado
+        Square newSq = (Square)sqFoo.clone();//objeto clonado
         newSq.side *=2;
         //modifica el valor de algo que está fuera
         //está modificando el parámetro y no debería hacerlo
         return newSq;
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws CloneNotSupportedException{
         
         Square sq1 = new Square(10);
         Square dSq = Foo(sq1);

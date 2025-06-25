@@ -1,6 +1,6 @@
-import base.Dog;
+import animals.Dog;
+import animals.Pet;
 import base.Person;
-import base.Pet;
 import base.Square;
 import game.Character;
 import game.Role;
