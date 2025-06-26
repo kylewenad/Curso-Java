@@ -5,7 +5,7 @@ import base.Square;
 import game.Character;
 import game.Role;
 import game.Species;
-
+//diseño de UML lenguaje especifico donde cada dibujito se entienda
 public class App {
     //instanciar 'crear'personas
     //importa la clase Person

@@ -3,5 +3,11 @@
     "cSpell.words": [
         "BIZZUM",
         "Gorko"
+    ],
+    "java.project.sourcePaths": [
+        "soop/src",
+        "demos-oop/demo01/src",
+        "demos-oop/demo01/soop/src",
+        "demos-oop/soop/src"
     ]
 }
