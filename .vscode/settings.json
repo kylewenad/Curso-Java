@@ -5,9 +5,8 @@
         "Gorko"
     ],
     "java.project.sourcePaths": [
-        "soop/src",
-        "demos-oop/demo01/src",
-        "demos-oop/demo01/soop/src",
-        "demos-oop/soop/src"
+        "demos-oop/soop/src/containers",
+        "demos-oop/soop/src",
+        "demos-oop/demo01/src"
     ]
 }

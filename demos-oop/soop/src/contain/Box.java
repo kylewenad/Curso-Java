@@ -1,4 +1,4 @@
-package Soop.containers;
+package contain;
 
 import java.util.Set;
 //referencia del producto
@@ -7,6 +7,9 @@ import java.util.Set;
 //espacio que queda después de añadir el producto
 //las cajas no tienen peso límite
 //tipo de producto si es compatible para ponerlo en ese contenedor
+
+import products.IProduct;
+import products.Product;
 
 public class Box extends Container {
 

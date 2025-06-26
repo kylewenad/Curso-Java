@@ -1,4 +1,4 @@
-package soop.products;
+package products;
 
 public class Frozen extends Food {
 

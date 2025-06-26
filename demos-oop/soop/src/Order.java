@@ -1,13 +1,13 @@
 import java.util.Set;
-//por defecto tienen un constructor pero no definido
-import containers.IContainer;
+
+import contain.IContainer;
 import products.IProduct;
 
 public abstract class Order implements IOrder {
 
-    private String reference;
-    private Set<IContainer> containers;
-    private Set<IProduct> products;
+    private String reference;//referencia del pedido
+    private Set<IContainer> containers;//lista de contenedores
+    private Set<IProduct> products; //lista de productos
 
     
     public Order(String reference) {
