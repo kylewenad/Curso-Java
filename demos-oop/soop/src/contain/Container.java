@@ -13,6 +13,8 @@ public abstract class Container implements IContainer {
     private int leftDimension; //espacio que queda en el contenedor
     private int maxWeight; //peso máximo del contenedor
     private Set<IProduct> products;
+    
+
 
     public Container(String reference){
         this.reference = reference;
@@ -33,10 +35,10 @@ public abstract class Container implements IContainer {
         return getDimensionProduct();
     }
     
-    @Override
-    public int getWeightProduct() {
-       return getWeightProduct();
-   }
+    //@Override
+    //public int getWeightProduct() {
+    //   return getWeightProduct();
+   //}
     
    @Override
     public typeOfContainer getTypeOfContainer() {
@@ -50,21 +52,27 @@ public abstract class Container implements IContainer {
 
 
     @Override
-    public boolean addIf(IProduct product) {
-        // TODO Auto-generated method stub
+    public boolean canInsert(IProduct product) {
         return false;
     }
 
     @Override
     public boolean isResistanceOf(IProduct product) {
-        // TODO Auto-generated method stub
         return false;
     }
 
     @Override
     public int leftDimension() {
-        // TODO Auto-generated method stub
         return 0;
     }
-    
+
+     @Override
+    public String toString() {
+        String message = """
+                Referencia: %s
+                Tipo: %s
+                Hash:    %s
+                """.formatted(reference, getTypeOfContainer(), super.toString()); //se puede utilizar el getType porque la interfaz de container está escrito
+        return message;
+    }
 }
