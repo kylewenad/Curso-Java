@@ -12,9 +12,9 @@ public interface IProduct {
     int getDimensionProduct();
     int getWeightProduct();
 
-    int calculateSurfaceOfProduct();
-    int calculateDimensionOfProduct();
-      
+    boolean isCompatible(); //si el producto a añadir es compatible con los productos ya añadidos
+    boolean hasSpace();//si el producto entra en el contendeor
+    void putInto();//si se cumpllen las condiciones de compatibilidad y espacio, añadir el producto al contenedor
     
     
 

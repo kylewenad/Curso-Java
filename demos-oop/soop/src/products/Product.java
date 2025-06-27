@@ -6,36 +6,61 @@ import enums.typeOfProducts;
 public abstract class Product implements IProduct {
 
     private String reference;
-    typeOfProducts products;
-    int surface;
     int dimension;
     int weight;
     
     
-    private Product(typeOfProducts products, String referenceOfProduct, int surface, int dimension, int weight){
-        this.products = products;
+    private Product(String referenceOfProduct, int dimension, int weight){
         this.reference = referenceOfProduct;
-        this.surface = surface;
         this.dimension = dimension;
         this.weight = weight;
     }
     
     @Override
+    public int getDimensionProduct() {
+        // TODO Auto-generated method stub
+        return 0;
+    }
+
+    @Override
+    public int getSurfaceProduct() {
+        // TODO Auto-generated method stub
+        return 0;
+    }
+
+    @Override
+    public String getTypeOfProduct() {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public int getWeightProduct() {
+        // TODO Auto-generated method stub
+        return 0;
+    }
+
+    @Override
+    public boolean hasSpace() {
+        // TODO Auto-generated method stub
+        return false;
+    }
+
+    @Override
+    public boolean isCompatible() {
+        // TODO Auto-generated method stub
+        return false;
+    }
+
+    @Override
+    public void putInto() {
+        // TODO Auto-generated method stub
+        
+    }
+
+    @Override
     public String getReferenceOfProduct() {
         return reference;
     }
-    
-    @Override
-    public int calculateDimension() {
-        return calculateSurface() * height;
-    }
-    
-    @Override
-    public int calculateSurface() {
-        return length*depth;
-    }
-
-    
-
 
 }

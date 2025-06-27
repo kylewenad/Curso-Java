@@ -8,13 +8,14 @@ import products.Product;
 public abstract class Container implements IContainer {
 
     private String reference; //referencia del contenedor
-    private typeOfContainer type; //tipo de contenedor: bolsa o caja
-    private int initialDimension; //dimensiones del contenedor antes de añadir el producto
-    private int leftDimension; //espacio que queda en el contenedor
-    private int maxWeight; //peso máximo del contenedor
+    //? private typeOfContainer type; //tipo de contenedor: bolsa o caja
+    //?private int initialDimension; //dimensiones del contenedor antes de añadir el producto
+    //? private int leftDimension; //espacio que queda en el contenedor
+    protected int maxWeight; //peso máximo del contenedor
+    protected int height;
+    
     private Set<IProduct> products;
     
-
 
     public Container(String reference){
         this.reference = reference;
@@ -26,30 +27,14 @@ public abstract class Container implements IContainer {
     }
     
     @Override
-    public int initialDimension() {
-        return initialDimension;
-    }   
-    
-    @Override
-    public int getDimensionProduct() {
-        return getDimensionProduct();
-    }
-    
-    //@Override
-    //public int getWeightProduct() {
-    //   return getWeightProduct();
-   //}
-    
-   @Override
-    public typeOfContainer getTypeOfContainer() {
-        return type;
-    }    
-    
-    @Override
     public Set<IProduct> getProducts() {
         return products;
     }
 
+    @Override
+    public int calculateDimension() {
+        return calculateSurface() * height; 
+    }
 
     @Override
     public boolean canInsert(IProduct product) {
@@ -57,7 +42,7 @@ public abstract class Container implements IContainer {
     }
 
     @Override
-    public boolean isResistanceOf(IProduct product) {
+    public boolean isResistanceTo(IProduct product) {
         return false;
     }
 
@@ -69,10 +54,9 @@ public abstract class Container implements IContainer {
      @Override
     public String toString() {
         String message = """
-                Referencia: %s
-                Tipo: %s
+                %s ref %s
                 Hash:    %s
-                """.formatted(reference, getTypeOfContainer(), super.toString()); //se puede utilizar el getType porque la interfaz de container está escrito
+                """.formatted(getTypeOfContainer(), reference, super.toString()); //se puede utilizar el getType porque la interfaz de container está escrito
         return message;
     }
 }

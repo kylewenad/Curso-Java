@@ -5,7 +5,7 @@ import java.util.Set;
 import contain.IContainer;
 import products.IProduct;
 // ";" tipo genérico
-public abstract class Order implements IOrder {
+public class Order implements IOrder {
 
     private String reference;//referencia del pedido
     private Set<IContainer> containers;//lista de contenedores
