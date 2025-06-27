@@ -3,6 +3,7 @@ import contain.IContainer;
 import contain.PlasticBag;
 import order.IOrder;
 import order.Order;
+import products.Food;
 import products.IProduct;
 
 public class Supermarket {
@@ -30,9 +31,9 @@ public class Supermarket {
         
 
         IContainer c1 = order1.addProduct(p1);
-        IContainer c1 = order1.addProduct(p1);
-        IContainer c1 = order1.addProduct(p1);
-        IContainer c1 = order1.addProduct(p1);
+        IContainer c2 = order1.addProduct(p1);
+        IContainer c3 = order1.addProduct(p1);
+        IContainer c4 = order1.addProduct(p1);
         //para saber en qué contenedor está
 
 

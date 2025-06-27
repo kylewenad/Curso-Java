@@ -39,7 +39,7 @@ public abstract class Order implements IOrder {
     @Override
     public void addContainer(IContainer container) {
     //para que guarde el contenedor en set IContainer
-        this.containers.add(container);
+        containers.add(container);
     }
 
     @Override
@@ -50,13 +50,6 @@ public abstract class Order implements IOrder {
         }
         return null;
     }
-
-    //IContainer es de tipo void, me tiene que devolver
-    //el contenedor     
-//        products.add(product);
-
-        //TODO añadir al container
-
     
     @Override
     public String toString() {
