@@ -6,11 +6,11 @@ import enums.typeOfProducts;
 
 public interface IProduct {
     
-    String getTypeOfProduct();
     String getReferenceOfProduct();
-    int getSurfaceProduct();
     int getDimensionProduct();
     int getWeightProduct();
+    typeOfProducts getTypeOfProducts();
+    //Lógica de negocio
 
     boolean isCompatible(); //si el producto a añadir es compatible con los productos ya añadidos
     boolean hasSpace();//si el producto entra en el contendeor

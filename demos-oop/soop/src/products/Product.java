@@ -1,7 +1,5 @@
 package products;
 
-import enums.typeOfProducts;
-
 //Set: una lista de elementos único
 public abstract class Product implements IProduct {
 
@@ -10,34 +8,25 @@ public abstract class Product implements IProduct {
     int weight;
     
     
-    private Product(String referenceOfProduct, int dimension, int weight){
+    protected Product(String referenceOfProduct, int dimension, int weight){
         this.reference = referenceOfProduct;
         this.dimension = dimension;
         this.weight = weight;
     }
     
     @Override
+    public String getReferenceOfProduct() {
+        return reference;
+    }
+    
+    @Override
     public int getDimensionProduct() {
-        // TODO Auto-generated method stub
-        return 0;
-    }
-
-    @Override
-    public int getSurfaceProduct() {
-        // TODO Auto-generated method stub
-        return 0;
-    }
-
-    @Override
-    public String getTypeOfProduct() {
-        // TODO Auto-generated method stub
-        return null;
+        return dimension;
     }
 
     @Override
     public int getWeightProduct() {
-        // TODO Auto-generated method stub
-        return 0;
+        return weight;
     }
 
     @Override
@@ -57,10 +46,11 @@ public abstract class Product implements IProduct {
         // TODO Auto-generated method stub
         
     }
-
-    @Override
-    public String getReferenceOfProduct() {
-        return reference;
+    public String toString() {
+        String message = "[%s] %s %s cm3 - %s g".formatted(
+        getTypeOfProducts().toString().toUpperCase(),    
+        reference, dimension, weight);
+        return message;
     }
 
 }
