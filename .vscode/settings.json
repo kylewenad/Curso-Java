@@ -5,6 +5,6 @@
         "Gorko"
     ],
     "java.project.sourcePaths": [
-        "demos-concepts"
+        "demos-concepts/src"
     ]
 }
