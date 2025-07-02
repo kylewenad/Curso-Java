@@ -1,5 +1,7 @@
 import java.util.Scanner;
 
+import src.main.java.local.exceptions.BusinessException;
+
 public class Calculator {
     
     static int add(int num1, int num2){
@@ -41,7 +43,7 @@ public class Calculator {
         }
     
 
-    public static void main(String[] args){
+    public static void main(String[] args) throws BusinessException{
 
         int num1 = getInteger("Dime un número entero");
         int num2 = getInteger("Dime otro número entero");

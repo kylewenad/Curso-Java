@@ -41,7 +41,7 @@ public class AskUser {
         System.out.println("Gracias por todo");
     }
     public static void main(String[] args) {
-       ask();
+       //ask();
        //ask2();
     }
 
