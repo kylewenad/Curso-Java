@@ -2,7 +2,7 @@ package products;
 
 import enums.typeOfProducts;
 
-public abstract class Food extends Product implements IFood {
+public abstract class Food extends Product {
 
     public Food(String referenceOfProduct, int dimensionOfProduct, int weightOfProduct){
         super(referenceOfProduct, dimensionOfProduct, weightOfProduct);

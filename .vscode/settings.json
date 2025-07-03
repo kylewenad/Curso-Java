@@ -5,6 +5,7 @@
         "Gorko"
     ],
     "java.project.sourcePaths": [
+        "demos-oop/soop/src",
         "demo-concepts/src/main/java/local/concept2_vc"
     ],
     "java.configuration.updateBuildConfiguration": "interactive"
