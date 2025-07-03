@@ -6,5 +6,6 @@
     ],
     "java.project.sourcePaths": [
         "demo-concepts/src/main/java/local/concept2_vc"
-    ]
+    ],
+    "java.configuration.updateBuildConfiguration": "interactive"
 }

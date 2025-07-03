@@ -5,7 +5,7 @@ import java.util.Locale;
 
 import local.exceptions.BusinessException;
 import local.exceptions.ErrorCodes;
-import local.exceptions.TechnicalException;
+
 
 public class Factorial {
     static void showNumber(long number) {
