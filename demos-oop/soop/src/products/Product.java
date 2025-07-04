@@ -37,7 +37,7 @@ public abstract class Product implements IProduct {
 
     @Override
     public boolean isCompatible() {
-        if (Product == Food) 
+        //if (Product == Food) 
         return false;
     }
 
