@@ -1,6 +1,6 @@
 package contain;
 
-import java.util.Set;
+//import java.util.Set;
 //referencia del producto
 //añadir el producto
 //espacio que queda después de añadir el producto
@@ -8,8 +8,8 @@ import java.util.Set;
 //tipo de producto si es compatible para ponerlo en ese contenedor
 
 import enums.typeOfContainer;
-import products.IProduct;
-import products.Product;
+//import products.IProduct;
+//import products.Product;
 
 public class Box extends Container {
 

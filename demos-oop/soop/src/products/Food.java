@@ -12,4 +12,5 @@ public abstract class Food extends Product {
     public typeOfProducts getTypeOfProducts() {
         return typeOfProducts.FOOD;
     }
+
 }

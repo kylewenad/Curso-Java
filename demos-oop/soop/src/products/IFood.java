@@ -1,9 +1,11 @@
 package products;
 
+import enums.typeOfFood;
+
 public interface IFood {
-    
-    boolean 
-    no mezclar con higiene
-    no droguería
-    no pets
+
+    typeOfFood getTypeOfFood();
+    boolean isFresh();
+    boolean isFrozen();
+    boolean isNonPerishable();
 }

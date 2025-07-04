@@ -1,9 +1,9 @@
 package contain;
 import java.util.Set;
 
-import enums.typeOfContainer;
+//import enums.typeOfContainer;
 import products.IProduct;
-import products.Product;
+//import products.Product;
 
 public abstract class Container implements IContainer {
 

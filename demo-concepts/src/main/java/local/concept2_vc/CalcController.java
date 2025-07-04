@@ -6,8 +6,9 @@ import local.exceptions.ErrorCodes;
 
 public class CalcController extends Calc{
     
-    private int num1; //primer número que el usuario ha escrito
+    private int num1; //primer número que el usuario ha escrito, si no le digo nada vale 0 porque es una PROPIEDAD
     private int num2; //segundo número que el usuario ha escrito
+    //int x, x es una VARIABLE como resultado daría null
 
     public void setNum1(int num1) { //guarda el número dado por el usuario
         this.num1 = num1;

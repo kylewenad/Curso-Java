@@ -37,7 +37,7 @@ public abstract class Product implements IProduct {
 
     @Override
     public boolean isCompatible() {
-        // TODO Auto-generated method stub
+        if (Product == Food) 
         return false;
     }
 

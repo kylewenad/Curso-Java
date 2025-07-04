@@ -2,7 +2,7 @@ package enums;
 
 public enum typeOfFood {
 
-    FRESHFOOD("alimentos frescos"), FROZEN("congelados"), NONPERISHABLE("no perecederos");
+    FRESH_FOOD("alimentos frescos"), FROZEN("congelados"), NONPERISHABLE("no perecederos");
 
     String name;
     typeOfFood (String name) {
