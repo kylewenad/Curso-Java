@@ -46,24 +46,28 @@ public class CalcController extends Calc{
         }
     }
 
-    public int restDivision() {
-        int result = num1 % num2;
-        return result;
-    }
-
-     public double decimalDivide() throws BusinessException {
-        try {
+    
+    public double decimalDivide() throws BusinessException {
             double result = (double) num1 / num2; //casting para que pueda hacer operaciones con decimales
             //con que uno de los operando está en double es suficiente
             return result;
-
-        } catch (ArithmeticException e) {
-            throw new BusinessException(
-                    ErrorCodes.ERROR_ZERO,
-                    "Dividiendo por 0",
-                    e);
-        }
     }
+            
+    public double decimalDivideNoNan() throws BusinessException {    
+        if(num2 == 0) {
+            throw new BusinessException(
+                ErrorCodes.ERROR_ZERO,
+                "Dividiendo por 0");
+        }
+
+        double result = (double) num1 / num2;
+        return result;
+    }
+
+    public int restDivision() {
+            int result = num1 % num2;
+            return result;
+        }
 
     public long calculateFactorial() throws BusinessException {
         return calculateFactorial((short) num1);
