@@ -130,7 +130,7 @@ public class CalcControllerTest {
         } catch (BusinessException e){
             assertTrue(true);
         } catch (Exception e) {
-            fail("Excepción no soporada");
+            fail("Excepción no soportada");
         }
     }
 
