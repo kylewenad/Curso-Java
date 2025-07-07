@@ -25,8 +25,8 @@ public class CalcView extends Calc{
         Scanner scanner = new Scanner(System.in);
         System.out.println(message);
         try {
-        int num = scanner.nextInt();
-        return num;
+            int num = scanner.nextInt();
+            return num;
         } catch (InputMismatchException e) {
             System.out.println("Tipo de dato no válido");
             return 0;

@@ -297,7 +297,7 @@ public class CalcControllerTest {
     }
 
     @Test
-    public void testPow(){
+    public void testPow() throws BusinessException{
         //5(2) = 25
         int num1 = 3;
         int num2 = 2;
@@ -309,7 +309,7 @@ public class CalcControllerTest {
 
     @Test
     public void testPowNegativeNum2() throws BusinessException{
-        //5(2) = 25
+        //3^(-3) = ?? Error
         int num1 = 3;
         int num2 = -3;
         calculator.setNum1(num1);

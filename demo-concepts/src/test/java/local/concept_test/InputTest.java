@@ -2,7 +2,6 @@ package local.concept_test;
 
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
-import java.io.PrintStream;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -11,8 +10,6 @@ import org.junit.jupiter.api.Test;
 public class InputTest {
 
     private InputStream originalIn;
-    private ByteArrayInputStream inputStream;
-
 
     @BeforeEach
     void setup(){
@@ -24,7 +21,7 @@ public class InputTest {
     void demo () {
 
         //Creamos el String que escribiría el usuario
-        String userInput = "This is a test for console input";
+        String userInput = "This is a test for console input.";
 
         //Creamos un ByteArrayInputStream a partir de un str
         ByteArrayInputStream inputStream = new ByteArrayInputStream(userInput.getBytes());
@@ -38,7 +35,8 @@ public class InputTest {
 
     @AfterEach
     void tearDown() {
-
+        //Recumperamos el System.in original
+        System.setIn(originalIn);
     }
 
     

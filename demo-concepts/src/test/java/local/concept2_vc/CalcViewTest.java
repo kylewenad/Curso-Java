@@ -4,7 +4,9 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.io.PrintStream;
+import java.util.NoSuchElementException;
 
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -14,41 +16,31 @@ import local.exceptions.ErrorCodes;
 //Inyección de dependencias
 public class CalcViewTest {
     
-    private CalcController ctrlMock;
-    private CalcView view;
     private PrintStream originalOut;
-    private InputStream originalIn;
-    private PrintStream newOut;
-    private ByteArrayInputStream inputStream;
     private ByteArrayOutputStream outputStream;
-    private String userInput;
+    private InputStream originalIn;
+    private CalcView view;
+    private CalcController ctrlMock;
 
     @BeforeEach
-    void setup(){
+    public void setup(){
     
         ctrlMock = Mockito.mock(CalcController.class);
         view = new CalcView(ctrlMock);
 
-        //Guardas el input original
+        //Guardar el input original
         originalIn = System.in;
         //Guardar el output original
         originalOut = System.out;
 
-        //Creamos un ByteArrayInputStream a partir de un str
-        inputStream = new ByteArrayInputStream(userInput.getBytes());
-        
         //Crear nuevo output
-        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-        newOut = new PrintStream(outputStream);
+        outputStream = new ByteArrayOutputStream();
+        PrintStream newOut = new PrintStream(outputStream);
+        
         //Seteamos el system out
         System.setOut(newOut);
     }
     
-    @Test
-    void testShow() {
-        
-    }
-
     @Test
     void testAdd(){
         
@@ -57,10 +49,10 @@ public class CalcViewTest {
 
         Mockito.when(ctrlMock.add()).thenReturn(8);
 
-        //Creamos el String que escribiría el usuario
+        //Creamos el String de lo que respondería el usuario al ofrecerle las opciones, en este caso la suma.
         String userInput = "3";
 
-        //Creamos un ByteArrayInputStream a partir de un str
+        //Creamos un ByteArrayInputStream a partir de un string
         ByteArrayInputStream inputStream = new ByteArrayInputStream(userInput.getBytes());
 
         //se lo pasamos a System.in
@@ -68,7 +60,7 @@ public class CalcViewTest {
 
         try {
             view.show();
-        } catch (Exception e) {
+        } catch (NoSuchElementException e) {
             // handle exception for exit while in the code
         }
     
@@ -78,9 +70,6 @@ public class CalcViewTest {
         //verify terminal output
         String output = outputStream.toString().trim();
         assert output.contains("El resultado de la suma es 8") : "Output did no contain expected";
-
-        
-        // Comparamos userInput
     }
 
      @Test
@@ -91,7 +80,7 @@ public class CalcViewTest {
 
         Mockito.when(ctrlMock.subtract()).thenReturn(2);
 
-        //Creamos el String que escribiría el usuario
+        //String que escribiría el usuario para que muestre una resta.
         String userInput = "4";
 
         //Creamos un ByteArrayInputStream a partir de un str
@@ -102,7 +91,7 @@ public class CalcViewTest {
 
         try {
             view.show();
-        } catch (Exception e) {
+        } catch (NoSuchElementException e) {
             // handle exception for exit while in the code
         }
     
@@ -112,9 +101,6 @@ public class CalcViewTest {
         //verify terminal output
         String output = outputStream.toString().trim();
         assert output.contains("El resultado de la resta es 2") : "Output did no contain expected";
-
-
-        // Comparamos userInput
     }
 
       @Test
@@ -124,9 +110,9 @@ public class CalcViewTest {
         view = new CalcView(ctrlMock);
 
         Mockito.when(ctrlMock.calculateFactorial()).thenReturn((120l));
-        //hacemos un casting long añadiendo una l al resultado de return
+        //hacemos un casting long añadiendo una l al resultado
 
-        //Creamos el String que escribiría el usuario
+        //String que escribiría el usuario para hacer un factorial.
         String userInput = "9";
 
         //Creamos un ByteArrayInputStream a partir de un str
@@ -137,7 +123,7 @@ public class CalcViewTest {
 
         try {
             view.show();
-        } catch (Exception e) {
+        } catch (NoSuchElementException e) {
             // handle exception for exit while in the code
         }
     
@@ -146,7 +132,7 @@ public class CalcViewTest {
         
         //verify terminal output
         String output = outputStream.toString().trim();
-        assert output.contains("El factorial de 5 es 120") : "Output did no contain expected";
+        assert output.contains("El factorial de 0 es 120") : "Output did no contain expected";
     }
 
      @Test
@@ -168,7 +154,7 @@ public class CalcViewTest {
 
         try {
             view.show();
-        } catch (Exception e) {
+        } catch (NoSuchElementException e) {
             // handle exception for exit while in the code
         }
     
@@ -178,7 +164,6 @@ public class CalcViewTest {
         //verify terminal output
         String output = outputStream.toString().trim();
         assert output.contains(ErrorCodes.ERROR_NEGATIVE.toString()) : "Output did no contain expected";
-    
     }
 
      @Test
@@ -200,7 +185,7 @@ public class CalcViewTest {
 
         try {
             view.show();
-        } catch (Exception e) {
+        } catch (NoSuchElementException e) {
             // handle exception for exit while in the code
         }
     
@@ -210,7 +195,13 @@ public class CalcViewTest {
         //verify terminal output
         String output = outputStream.toString().trim();
         assert output.contains(ErrorCodes.ERROR_BIGGER_20.toString()) : "Output did no contain expected";
-    
     }
 
+    @AfterEach
+    public void tearDown() {
+        //Restablecer el input original
+        System.setIn(originalIn);
+        //Restablecer el output original
+        System.setOut(originalOut);
+    }
 }

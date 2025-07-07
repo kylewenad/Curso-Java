@@ -13,23 +13,22 @@ public class OutputTest {
 
     private PrintStream originalOut;
     private ByteArrayOutputStream outputStream;
-    private PrintStream newOut;
-
+    
     @BeforeEach
     public void setup() {
         //Guardar el output original
         originalOut = System.out;
 
         //Crear nuevo output
-        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-        newOut = new PrintStream(outputStream);
+        outputStream = new ByteArrayOutputStream();
+        PrintStream newOut = new PrintStream(outputStream);
         //Seteamos el system out
         System.setOut(newOut);
     }
     
     @Test
     void demo () {
-        
+    
         // Código a probar
         final String TEXT = "Texto de prueba";
 
@@ -37,20 +36,13 @@ public class OutputTest {
         String output = outputStream.toString().trim();
 
         //Assert
-
         assertEquals(TEXT, output);
-
-        //Restablecer output
-
-        System.setOut(originalOut);
     }
 
     @AfterEach
     public void tearDown() {
-            
         //Restablecer output
         System.setOut(originalOut);
-
     }
 }
 
