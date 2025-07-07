@@ -19,6 +19,7 @@ public class CalcView extends Calc{
         this.ctr.setNum2(number2);
     }
 
+    @SuppressWarnings("resource")
     private int getInteger(String message) {
 
         Scanner scanner = new Scanner(System.in);
@@ -84,25 +85,25 @@ public class CalcView extends Calc{
 
     }
 
-    void showResult(String operation, int result) {
+    private void showResult(String operation, int result) {
         System.out.printf("El resultado de la %s es %s", operation, result);
         System.out.println("");
     }
 
     //Overload para que pueda hacer operaciones con números decimales
-    void showResult(String operation, double result) {
+    private void showResult(String operation, double result) {
         System.out.printf("El resultado de la %s es %.2f", operation, result);
         //%.2f para que me muestre con dos decimales
         System.out.println("");
     }
 
-    void showResult(String operation, long result) {
+    private void showResult(String operation, long result) {
         NumberFormat nf = NumberFormat.getInstance(Locale.GERMANY);
-        System.out.printf("El factorial de %s es %s", operation, nf.format(result));
+        System.out.printf("El factorial de %s es %s", number1, nf.format(result));
         System.out.println("");
     }
 
-    void showAllResults() throws BusinessException {
+    private void showAllResults() throws BusinessException {
         System.out.printf("Operaciones con %s y %s\n", number1, number2);
         showResult("suma", ctr.add());
         showResult("resta", ctr.subtract());
@@ -112,7 +113,7 @@ public class CalcView extends Calc{
         showResult("división", ctr.decimalDivide());
     }
 
-    void show() throws BusinessException {
+    void show() {
         Scanner scanner = new Scanner(System.in);
         boolean wantContinue = true;
 

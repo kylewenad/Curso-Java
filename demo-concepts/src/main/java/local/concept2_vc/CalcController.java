@@ -97,4 +97,20 @@ public class CalcController extends Calc{
         }
         return result;
     }
+
+    public int pow() throws BusinessException {
+
+        if (num2 < 0) {
+           String message = "No se puede calcular la potencia de " + num2; 
+           // throw new TechnicalException(message);
+           throw new BusinessException(ErrorCodes.ERROR_NEGATIVE, message);
+        }
+
+        int result = 1;
+        for (int i = 1; i <= num2; i++) {
+            result*= num1;
+        }
+        return result;
+    }
+
 }

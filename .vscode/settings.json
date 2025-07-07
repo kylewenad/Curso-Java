@@ -3,7 +3,9 @@
     "cSpell.words": [
         "BIZZUM",
         "Gorko",
-        "jupiter"
+        "jupiter",
+        "mockito",
+        "Seteamos"
     ],
     "java.project.sourcePaths": [
         "demos-oop/soop/src"

@@ -1,6 +1,7 @@
 package local.concept2_vc;
 //test para detectar los cornerCase (casos raros)
 
+import static org.junit.Assert.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.fail;
@@ -262,6 +263,18 @@ public class CalcControllerTest {
     }
 
     @Test
+    public void testCalculateFactorialNegativesLAmbda() {
+        // -3
+        int num1 = -3;
+        calculator.setNum1(num1);
+        
+        assertThrows(BusinessException.class,
+            () -> {
+            calculator.calculateFactorial();
+        });
+    }//método lambda () -> {}
+
+    @Test
     public void testCalculateFactorialBigger20() {
         int num1 = 23;
         calculator.setNum1(num1);
@@ -274,4 +287,33 @@ public class CalcControllerTest {
         
     }
 
+    @Test
+    public void testCalculateFactorialBigger20Lambda() {
+        int num1 = 23;
+        calculator.setNum1(num1);
+        
+        assertThrows(BusinessException.class,
+            () -> calculator.calculateFactorial());
+    }
+
+    @Test
+    public void testPow(){
+        //5(2) = 25
+        int num1 = 3;
+        int num2 = 2;
+        calculator.setNum1(num1);
+        calculator.setNum2(num2);
+        int result = calculator.pow();
+        assertEquals(9, result);
+    }
+
+    @Test
+    public void testPowNegativeNum2() throws BusinessException{
+        //5(2) = 25
+        int num1 = 3;
+        int num2 = -3;
+        calculator.setNum1(num1);
+        calculator.setNum2(num2);
+        assertThrows(BusinessException.class, () -> calculator.pow());
+    }
 }
