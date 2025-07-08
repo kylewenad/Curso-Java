@@ -17,7 +17,7 @@ public class CalcController extends Calc{
     public void setNum2(int num2) { //guarda el número dado por el usuario
         this.num2 = num2;
     }
-
+    
     public int add() {
         int result = num1 + num2;
         return result;
@@ -45,7 +45,6 @@ public class CalcController extends Calc{
                     e);
         }
     }
-
     
     public double decimalDivide() throws BusinessException {
             double result = (double) num1 / num2; //casting para que pueda hacer operaciones con decimales
@@ -76,8 +75,9 @@ public class CalcController extends Calc{
     public long calculateFactorial(byte i) throws BusinessException {
 
         if (i == 1) {
-            return calculateFactorial();
+            return calculateFactorial((short)num1);
         }
+        return calculateFactorial((short) num2);
     }
 
     public long calculateFactorial(short number) throws BusinessException  {
@@ -104,8 +104,11 @@ public class CalcController extends Calc{
         }
         return result;
     }
-
     public int pow() throws BusinessException {
+        return pow(num1, num2);
+    }
+
+    public int pow(int num1, int num2) throws BusinessException {
 
         if (num2 < 0) {
            String message = "No se puede calcular la potencia de " + num2; 

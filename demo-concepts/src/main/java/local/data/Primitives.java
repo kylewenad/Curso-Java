@@ -25,7 +25,7 @@ public class Primitives {
     void Wrappers() {
         //Integer iObj = new Integer(null);
         Integer iObj = 1;
-        iObj.
+        //iObj.
 
         Byte byteNumber = 1;
         Short shortNumber = 1;
@@ -37,6 +37,6 @@ public class Primitives {
         Boolean bo = true;
 
         Number n = 2;
-        l = n.
+        //l = n.
     }
 }

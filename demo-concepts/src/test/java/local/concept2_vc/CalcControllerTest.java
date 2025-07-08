@@ -1,8 +1,7 @@
 package local.concept2_vc;
 //test para detectar los cornerCase (casos raros)
-
-import static org.junit.Assert.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.fail;
 
@@ -24,98 +23,30 @@ public class CalcControllerTest {
     }
     
     @ParameterizedTest (name = "[{index}]{0}+{1} = {2}")
-    @CsvSource(value= {"0, 0, 0", "3, 3, 6"})
-    @Test
-    public void testAdd1(int n1, int n2, int e) {
+    @CsvSource(value= {"0, 0, 0", "3, 3, 6", "-5, 7, 2", "-10, 5, -5"})
+    // 0+0=0, 3+3=6, -5+7=2, -10+5=-5
+    public void testAdd(int n1, int n2, int e){
         calculator.setNum1(n1);
         calculator.setNum2(n2);
         assertEquals(e,calculator.add());
     }
 
-    @Test
-    public void testAddDefault() {
-        //0+0
-        assertEquals(0,calculator.add());
-        //(lo que yo espero, resultado)
-    }
-    
-    @Test
-    public void testAdd(){
-        //5+3
-        int num1 = 5;
-        int num2 = 3;
-        calculator.setNum1(num1);
-        calculator.setNum2(num2);
-        int result = calculator.add();
-        assertEquals(8, result);
-    }
-    
-    @Test
-    public void testAddNegatives(){
-        //-5+7
-        int num1 = -5;
-        int num2 = 7;
-        calculator.setNum1(num1);
-        calculator.setNum2(num2);
-        int result = calculator.add();
-        assertEquals(2, result);
-    }
-    
-    @Test
-    public void testSubtractDefault() {
-        //0-0
-        assertEquals(0, calculator.subtract());
+    @ParameterizedTest (name = "[{index}]{0}-{1} = {2}")
+    @CsvSource(value= {"0, 0, 0", "3, 3, 0", "-5, 7, -12", "-10, 5, -15"})
+    // 0-0=0, 3-3=0, -5-7=-12, -10-5=-15
+    public void testSubtract(int n1, int n2, int e){
+        calculator.setNum1(n1);
+        calculator.setNum2(n2);
+        assertEquals(e,calculator.subtract());
     }
 
-    @Test
-    public void testSubtract() {
-        //7-3
-        int num1 = 7;
-        int num2 = 3;
-        calculator.setNum1(num1);
-        calculator.setNum2(num2);
-        int result = calculator.subtract();
-        assertEquals(4, result);
-    }
-    
-    @Test
-    public void testSubtractNegatives() {
-        //7-3
-        int num1 = -7;
-        int num2 = -3;
-        calculator.setNum1(num1);
-        calculator.setNum2(num2);
-        int result = calculator.subtract();
-        assertEquals(-4, result);
-    }
-    
-    @Test
-    public void testMultiplyDefault() {
-        //0*0
-        assertEquals(0, 0);
-    }
-
-    @Test
-    public void testMultiply() {
-        //7*3
-        int num1 = 7;
-        int num2 = 3;
-        calculator.setNum1(num1);
-        calculator.setNum2(num2);
-        int result = calculator.multiply();
-        assertEquals(21, result);
-    }
-
-    @Test
-    public void testMultiplyNegatives() {
-        //7*3
-        int num1 = -7;
-        int num2 = -3;
-        calculator = new CalcController();
-        calculator.setNum1(num1);
-        calculator.setNum2(num2);
-        int result = calculator.multiply();
-        assertEquals(21, result);
+    @ParameterizedTest (name = "[{index}]{0}*{1} = {2}")
+    @CsvSource(value= {"0, 0, 0", "3, 3, 9", "-5, 7, -35", "10, -5, -50"})
+    // 0*0=0, 3*3=9, -5*7=-35, 10*-5=-50
+    public void testMultiply(int n1, int n2, int e){
+        calculator.setNum1(n1);
+        calculator.setNum2(n2);
+        assertEquals(e,calculator.multiply());
     }
     
     @Test
@@ -147,30 +78,13 @@ public class CalcControllerTest {
         }
     }
 
-    @Test
-    public void testIntDivide() throws BusinessException {
-        // 7/3
-        int num1 = 7;
-        int num2 = 3;
-        calculator.setNum1(num1);
-        calculator.setNum2(num2);
-        int result = calculator.intDivide();
-        int result2 = calculator.restDivision();
-        assertEquals(2, result);
-        assertEquals(1, result2);
-    }
-
-    @Test
-    public void testIntDivideNegatives() throws BusinessException {
-        //7*3
-        int num1 = 7;
-        int num2 = -3;
-        calculator.setNum1(num1);
-        calculator.setNum2(num2);
-        int result = calculator.intDivide();
-        int result2 = calculator.restDivision();
-        assertEquals(-2, result);
-        assertEquals(1, result2);
+    @ParameterizedTest (name = "[{index}]{0}/{1} = {2}")
+    @CsvSource(value= {"3, 3, 1", "-50, 5, -10", "10, -5, -2"})
+    // 3/3=1, -50/5=-10, 10/-5=-2
+    public void testIntDivide(int n1, int n2, int e) throws BusinessException{
+        calculator.setNum1(n1);
+        calculator.setNum2(n2);
+        assertEquals(e,calculator.intDivide());
     }
 
     @Test
@@ -180,30 +94,15 @@ public class CalcControllerTest {
         assertEquals(Double.NaN, result, 1);
     }
 
-    @Test
-    public void testDecimalDivide() throws BusinessException {
-        // 7/3
-        int num1 = 7;
-        int num2 = 3;
-        calculator.setNum1(num1);
-        calculator.setNum2(num2);
-        double result = calculator.decimalDivide();
-        assertEquals(2.33, result, 0.01);
-        //delta es el margen de error del resultado de los decimales
-    } 
-
-    @Test
-    public void testDecimalDivideNegatives() throws BusinessException {
-        // 7/3
-        int num1 = 7;
-        int num2 = -3;
-        calculator.setNum1(num1);
-        calculator.setNum2(num2);
-        double result = calculator.decimalDivide();
-        assertEquals(-2.33, result, 0.01);
-        //delta es el margen de error del resultado de los decimales
-    } 
-
+    @ParameterizedTest (name = "[{index}]{0}/{1} = {2}")
+    @CsvSource(value= {"7, 3, 2.33", "-7, 3, -2.33"})
+    // 7/3=2.33, -50/5=-10, 10/-5=-2
+    public void testDecimalDivide(int n1, int n2, double e) throws BusinessException{
+        calculator.setNum1(n1);
+        calculator.setNum2(n2);
+        assertEquals(e,calculator.decimalDivide(),0.01);
+    }
+    
     @Test
     public void testDecimalByZero() throws BusinessException {
         int num1 = 3;
@@ -211,7 +110,7 @@ public class CalcControllerTest {
         calculator.setNum1(num1);
         calculator.setNum2(num2);
         double result = calculator.decimalDivide();
-        assertEquals(Double.POSITIVE_INFINITY, result, 0.01);
+        assertEquals(Double.POSITIVE_INFINITY, result, 0.01);//delta es el margen de error del resultado de los decimales
     }
 
     @Test
@@ -226,40 +125,24 @@ public class CalcControllerTest {
             fail("Excepción no soportada");
         }
     }
-    
-    @Test
-    public void testDecimalDivideNoNan() throws BusinessException {
-        int num1 = 5;
-        int num2 = 3;
-        calculator.setNum1(num1);
-        calculator.setNum2(num2);
-        //double result = calculator.decimalDivideNoNan();
-        assertEquals(1.66, calculator.decimalDivideNoNan(), 0.01);
-    }
-    
-    @Test
-    public void testDecimalDivideNoNanNegatives() throws BusinessException{
-        int num1 = 5;
-        int num2 = -3;
-        calculator.setNum1(num1);
-        calculator.setNum2(num2);
-        double result = calculator.decimalDivideNoNan();
-        assertEquals(-1.66, result, 0.01);
+
+    @ParameterizedTest (name = "[{index}]{0}/{1} = {2}")
+    @CsvSource(value= {"5, 3, 1.66", "5, -3, -1.66"})
+    // 7/3=2.33, -50/5=-10, 10/-5=-2
+    public void testDecimalDivideNoNan(int n1, int n2, double e) throws BusinessException{
+        calculator.setNum1(n1);
+        calculator.setNum2(n2);
+        assertEquals(e,calculator.decimalDivideNoNan(),0.01);
     }
 
-    @Test
-    public void testCalculateFactorialDefault() throws BusinessException {
-        // 0
-        assertEquals(1, calculator.calculateFactorial());
+    @ParameterizedTest (name = "[{index}]{0} = {1}")
+    @CsvSource(value= {"0, 1", "5, 120"})
+    // 0=1, 5=120
+    public void testCalculateFactorial(int n1, int e) throws BusinessException{
+        calculator.setNum1(n1);
+        assertEquals(e, calculator.calculateFactorial());
     }
-    
-    @Test
-    public void testCalculateFactorial() throws BusinessException {
-        // 5
-        calculator.setNum1(5);
-        assertEquals(120, calculator.calculateFactorial());
-    }
-
+   
     @Test
     public void testCalculateFactorialNegatives() {
         // -3

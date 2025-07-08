@@ -2,7 +2,10 @@ package local.concept_test;
 
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
+import java.util.Scanner;
 
+import org.junit.AfterClass;
+import org.junit.BeforeClass;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -11,7 +14,7 @@ public class InputTest {
 
     private InputStream originalIn;
 
-    @BeforeEach
+    @BeforeClass
     void setup(){
         originalIn = System.in;
     }
@@ -33,10 +36,17 @@ public class InputTest {
 
     }
 
-    @AfterEach
+    @AfterClass
     void tearDown() {
         //Recumperamos el System.in original
         System.setIn(originalIn);
+    }
+
+    public String simulateScanner() {
+        try (Scanner scanner = new Scanner(System.in)){
+            System.out.println("Ingresa tu nombre: ");;
+            return scanner.nextLine();
+        }
     }
 
     

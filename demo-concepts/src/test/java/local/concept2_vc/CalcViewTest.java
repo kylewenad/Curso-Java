@@ -106,8 +106,8 @@ public class CalcViewTest {
       @Test
     void testFactorial() throws BusinessException{
         
-        ctrlMock.setNum1(5);
         view = new CalcView(ctrlMock);
+        ctrlMock.setNum1(5);
 
         Mockito.when(ctrlMock.calculateFactorial((byte)1)).thenReturn((120l));
         //hacemos un casting long añadiendo una l al resultado
@@ -138,13 +138,13 @@ public class CalcViewTest {
      @Test
     void testFactorialNegatives() throws BusinessException{
         
-        ctrlMock.setNum1(-5);
         view = new CalcView(ctrlMock);
+        ctrlMock.setNum1(-5);
 
         Mockito.when(ctrlMock.calculateFactorial((byte)1)).thenThrow(new BusinessException(ErrorCodes.ERROR_NEGATIVE, "Error"));
         
         //Creamos el String que escribiría el usuario
-        String userInput = "9";
+        String userInput = "3";
 
         //Creamos un ByteArrayInputStream a partir de un str
         ByteArrayInputStream inputStream = new ByteArrayInputStream(userInput.getBytes());

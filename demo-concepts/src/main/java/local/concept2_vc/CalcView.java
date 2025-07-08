@@ -19,7 +19,7 @@ public class CalcView extends Calc{
         this.ctr.setNum2(number2);
     }
 
-    @SuppressWarnings("resource")
+    @SuppressWarnings("resources")
     private int getInteger(String message) {
 
         Scanner scanner = new Scanner(System.in);
@@ -52,6 +52,24 @@ public class CalcView extends Calc{
         System.out.println(menu);
     }
 
+    private void showMenu2(){
+        String menu = """
+        Elige el número de la opción que quieras
+                ----------------------------------------
+                1. Dime un número entero (%s)
+                2. Dime otro número entero (%s)
+                3. Calcula el factorial del primero
+                4. Calcula el factorial del segundo
+                5. Calcula es primero elevado al segundo
+                6. Calcula el segundo elevado al primero
+                7. ...
+                8. Calcula todos los anteriores (Pendiente)
+                9. Volver al menu anterior
+                0. Salir """.formatted(number1, number2);
+        
+        System.out.println(menu);
+    }
+
     private void calculate(int option) throws BusinessException {
         
         switch (option) {
@@ -74,9 +92,9 @@ public class CalcView extends Calc{
             case 8:
             showAllResults();
             break;
-            case 9:
-            showResult("factorial", ctr.calculateFactorial());
-            break;
+            //case 9:
+            //showResult("factorial", ctr.calculateFactorial());
+            //break;
             
             default:
             System.out.printf("La opción %s no es válida\n", option);
@@ -88,33 +106,28 @@ public class CalcView extends Calc{
     private void calculate2(int option) throws BusinessException {
          switch (option) {
             case 3:
-            showResult("factorial",ctr.calculateFactorial(byte 1));
+            showResult("factorial",ctr.calculateFactorial((byte) 1), number1);
             break;
             case 4:            
-            showResult("resta", ctr.subtract());
+            showResult("factorial",ctr.calculateFactorial((byte) 2), number2);
             break;
             case 5:
-            showResult("producto", ctr.multiply());
+            showResult("% elevado a %s".formatted(number1, number2), ctr.pow());
             break;
             case 6:
-            showResult("división", ctr.intDivide());
-            showResult("resto", ctr.restDivision());
+            showResult("% elevado a %s".formatted(number1, number2), ctr.pow(number2, number1));
             break;
             case 7:
-            showResult("división", ctr.decimalDivide());
+            //showResult("división", ctr.decimalDivide());
             break;
             case 8:
-            showAllResults();
-            break;
-            case 9:
-            showResult("factorial", ctr.calculateFactorial());
+            //showAllResults();
             break;
             
             default:
             System.out.printf("La opción %s no es válida\n", option);
             break;
         }
-
     }
 
     private void showResult(String operation, int result) {
@@ -129,9 +142,9 @@ public class CalcView extends Calc{
         System.out.println("");
     }
 
-    private void showResult(String operation, long result) {
+    private void showResult(String operation, long result, int number) {
         NumberFormat nf = NumberFormat.getInstance(Locale.GERMANY);
-        System.out.printf("El factorial de %s es %s", number1, nf.format(result));
+        System.out.printf("El %s de %s es %s", operation, number, nf.format(result));
         System.out.println("");
     }
 
@@ -155,15 +168,17 @@ public class CalcView extends Calc{
                 int answer = scanner.nextInt();
                 
                 if (answer == 0) {
-                wantContinue = false;
+                    scanner.close();
+                    System.out.println("Gracias por todo");
+                    System.exit(0);
                 } else if (answer == 1) {
-                number1 = getInteger(" Dime el primer número");
-                ctr.setNum1(number1);
+                    number1 = getInteger(" Dime el primer número");
+                    ctr.setNum1(number1);
                 } else if (answer == 2) {
-                number2 = getInteger(" Dime el segundo número");
-                ctr.setNum2(number2);
-                } else {
-                calculate(answer);
+                    number2 = getInteger(" Dime el segundo número");
+                    ctr.setNum2(number2);
+                } else if (answer == 9) {
+                    calculate(answer);
                 }
             } catch (InputMismatchException e){
                 System.out.println("Tipo de dato no válido");
@@ -172,7 +187,39 @@ public class CalcView extends Calc{
                 System.out.println(e.getMessage());
             }
         }
-        scanner.close();
-        System.out.println("Gracias por todo");
+    }
+
+    void show(boolean alt) {
+        @SuppressWarnings("resources")
+        Scanner scanner = new Scanner (System.in);
+        boolean wantContinue = true;
+
+        while (wantContinue) {
+            showMenu2();
+
+            int answer = scanner.nextInt();
+
+            if (answer == 0) {
+                System.out.println("Gracias por todo");
+                System.exit(0);
+            } else if (answer == 1) {
+                number1 = getInteger(" Dime el primer número");
+                ctr.setNum1(number1);
+            } else if (answer == 2) {
+                number2 = getInteger(" Dime el segundo número");
+                ctr.setNum2(number2);
+            } else if (answer == 9) {
+                wantContinue = false;
+            } else {
+                try {
+                    calculate2(answer);
+                } catch (BusinessException e) {
+                    System.out.println(e.getMessage());
+                }
+            }
+        }
+
+        show();
+        
     }
 }
