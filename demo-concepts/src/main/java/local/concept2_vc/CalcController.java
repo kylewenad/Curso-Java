@@ -73,6 +73,13 @@ public class CalcController extends Calc{
         return calculateFactorial((short) num1);
     }
 
+    public long calculateFactorial(byte i) throws BusinessException {
+
+        if (i == 1) {
+            return calculateFactorial();
+        }
+    }
+
     public long calculateFactorial(short number) throws BusinessException  {
         
         final int MAX_SAFE_FACTORIAL_VALUE = 20;

@@ -85,6 +85,38 @@ public class CalcView extends Calc{
 
     }
 
+    private void calculate2(int option) throws BusinessException {
+         switch (option) {
+            case 3:
+            showResult("factorial",ctr.calculateFactorial(byte 1));
+            break;
+            case 4:            
+            showResult("resta", ctr.subtract());
+            break;
+            case 5:
+            showResult("producto", ctr.multiply());
+            break;
+            case 6:
+            showResult("división", ctr.intDivide());
+            showResult("resto", ctr.restDivision());
+            break;
+            case 7:
+            showResult("división", ctr.decimalDivide());
+            break;
+            case 8:
+            showAllResults();
+            break;
+            case 9:
+            showResult("factorial", ctr.calculateFactorial());
+            break;
+            
+            default:
+            System.out.printf("La opción %s no es válida\n", option);
+            break;
+        }
+
+    }
+
     private void showResult(String operation, int result) {
         System.out.printf("El resultado de la %s es %s", operation, result);
         System.out.println("");

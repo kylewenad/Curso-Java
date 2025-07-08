@@ -8,6 +8,8 @@ import static org.junit.jupiter.api.Assertions.fail;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 
 import local.exceptions.BusinessException;
 import local.exceptions.ErrorCodes;
@@ -19,6 +21,15 @@ public class CalcControllerTest {
     @BeforeEach
     public void config(){
         calculator = new CalcController();
+    }
+    
+    @ParameterizedTest (name = "[{index}]{0}+{1} = {2}")
+    @CsvSource(value= {"0, 0, 0", "3, 3, 6"})
+    @Test
+    public void testAdd1(int n1, int n2, int e) {
+        calculator.setNum1(n1);
+        calculator.setNum2(n2);
+        assertEquals(e,calculator.add());
     }
 
     @Test
@@ -296,16 +307,13 @@ public class CalcControllerTest {
             () -> calculator.calculateFactorial());
     }
 
-    @Test
-    public void testPow() throws BusinessException{
-        //5(2) = 25
-        int num1 = 3;
-        int num2 = 2;
-        calculator.setNum1(num1);
-        calculator.setNum2(num2);
-        int result = calculator.pow();
-        assertEquals(9, result);
-    }
+    @ParameterizedTest(name = "[{index}]{0}^{1} = {2}")
+    @CsvSource(value = {"2, 2, 4", "3, 2, 9", "3, 5, 243", "-3, 3, -27"}) //formato csv para pasar datos entre datos por ejemplo entre tablas
+    public void testPow1(int n1, int n2, int e) throws BusinessException {
+        calculator.setNum1(n1);
+        calculator.setNum2(n2);
+        assertEquals(e, calculator.pow());
+    }     
 
     @Test
     public void testPowNegativeNum2() throws BusinessException{

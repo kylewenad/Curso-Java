@@ -109,11 +109,11 @@ public class CalcViewTest {
         ctrlMock.setNum1(5);
         view = new CalcView(ctrlMock);
 
-        Mockito.when(ctrlMock.calculateFactorial()).thenReturn((120l));
+        Mockito.when(ctrlMock.calculateFactorial((byte)1)).thenReturn((120l));
         //hacemos un casting long añadiendo una l al resultado
 
         //String que escribiría el usuario para hacer un factorial.
-        String userInput = "9";
+        String userInput = "3";
 
         //Creamos un ByteArrayInputStream a partir de un str
         ByteArrayInputStream inputStream = new ByteArrayInputStream(userInput.getBytes());
@@ -122,13 +122,13 @@ public class CalcViewTest {
         System.setIn(inputStream);
 
         try {
-            view.show();
+            view.show(true);
         } catch (NoSuchElementException e) {
             // handle exception for exit while in the code
         }
     
         //verify that the controller's add method was called
-        Mockito.verify(ctrlMock).calculateFactorial();
+        Mockito.verify(ctrlMock).calculateFactorial((byte)1);
         
         //verify terminal output
         String output = outputStream.toString().trim();
@@ -141,7 +141,7 @@ public class CalcViewTest {
         ctrlMock.setNum1(-5);
         view = new CalcView(ctrlMock);
 
-        Mockito.when(ctrlMock.calculateFactorial()).thenThrow(new BusinessException(ErrorCodes.ERROR_NEGATIVE, "Error"));
+        Mockito.when(ctrlMock.calculateFactorial((byte)1)).thenThrow(new BusinessException(ErrorCodes.ERROR_NEGATIVE, "Error"));
         
         //Creamos el String que escribiría el usuario
         String userInput = "9";
@@ -153,13 +153,13 @@ public class CalcViewTest {
         System.setIn(inputStream);
 
         try {
-            view.show();
+            view.show(true);
         } catch (NoSuchElementException e) {
             // handle exception for exit while in the code
         }
     
         //verify that the controller's add method was called
-        Mockito.verify(ctrlMock).calculateFactorial();
+        Mockito.verify(ctrlMock).calculateFactorial((byte)1);
         
         //verify terminal output
         String output = outputStream.toString().trim();
@@ -172,10 +172,10 @@ public class CalcViewTest {
         ctrlMock.setNum1(25);
         view = new CalcView(ctrlMock);
 
-        Mockito.when(ctrlMock.calculateFactorial()).thenThrow(new BusinessException(ErrorCodes.ERROR_BIGGER_20, "Error"));
+        Mockito.when(ctrlMock.calculateFactorial((byte)2)).thenThrow(new BusinessException(ErrorCodes.ERROR_BIGGER_20, "Error"));
         
         //Creamos el String que escribiría el usuario
-        String userInput = "9";
+        String userInput = "4";
 
         //Creamos un ByteArrayInputStream a partir de un str
         ByteArrayInputStream inputStream = new ByteArrayInputStream(userInput.getBytes());
@@ -184,13 +184,13 @@ public class CalcViewTest {
         System.setIn(inputStream);
 
         try {
-            view.show();
+            view.show(true);
         } catch (NoSuchElementException e) {
             // handle exception for exit while in the code
         }
     
         //verify that the controller's add method was called
-        Mockito.verify(ctrlMock).calculateFactorial();
+        Mockito.verify(ctrlMock).calculateFactorial((byte)2);
         
         //verify terminal output
         String output = outputStream.toString().trim();
