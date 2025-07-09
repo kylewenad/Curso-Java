@@ -3,7 +3,8 @@ Curso de JAVA, Centro de Formación Digital San Blas
 demos
 
 01-demo
-token' es el nombre de la variable para escribir el nombre de la variable no se puede empezar por números, no se pueden usar guiones, ...
+token' es el nombre de la variable
+para escribir el nombre de la variable no se puede empezar por números, no se pueden usar guiones, ...
 
 03-out
 Escribir algo de tres formas diferentes en pantalla

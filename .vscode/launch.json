@@ -6,6 +6,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Generic",
+            "request": "launch",
+            "mainClass": "local.generics.Generic",
+            "projectName": "demo-concepts"
+        },
+        {
+            "type": "java",
+            "name": "AppArrays",
+            "request": "launch",
+            "mainClass": "local.data.arrays.AppArrays",
+            "projectName": "demo-concepts"
+        },
+        {
+            "type": "java",
             "name": "Age",
             "request": "launch",
             "mainClass": "local.data.Age",
