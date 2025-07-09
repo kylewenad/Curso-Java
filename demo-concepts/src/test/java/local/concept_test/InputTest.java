@@ -6,8 +6,6 @@ import java.util.Scanner;
 
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class InputTest {
@@ -38,7 +36,7 @@ public class InputTest {
 
     @AfterClass
     void tearDown() {
-        //Recumperamos el System.in original
+        //Recuperamos el System.in original
         System.setIn(originalIn);
     }
 
