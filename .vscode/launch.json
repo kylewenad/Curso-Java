@@ -6,6 +6,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "ExerciseList",
+            "request": "launch",
+            "mainClass": "local.collections.ExerciseList",
+            "projectName": "demo-concepts"
+        },
+        {
+            "type": "java",
+            "name": "Demo05LinkedList",
+            "request": "launch",
+            "mainClass": "local.collections.Demo05LinkedList",
+            "projectName": "demo-concepts"
+        },
+        {
+            "type": "java",
             "name": "Generic",
             "request": "launch",
             "mainClass": "local.generics.Generic",

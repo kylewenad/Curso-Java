@@ -1,23 +1,24 @@
 package local.generics;
 
-import java.lang.reflect.GenericArrayType;
-import java.util.Arrays;
-
 public class Generic <T, U> {
     
     T foo;
-    U baz;
+    U[] baz;
 
-    Generic(T foo, U baz) {
+    Generic(T foo, U[] baz) {
         this.foo = foo;
         this.baz = baz;
     }
 
+    @SuppressWarnings("unused")
     public static void main(String[] args) {
         
-        Generic <String, Integer> gen1 = new Generic<>("Pepe", 123);
-        System.out.println(gen1);
-        System.out.println (gen1.foo.formatted(args));
-        System.out.println(gen1.baz.intValue());
+        Byte b = 2;
+        Integer i = 22;
+        String[] s = {"Pepe", "Juan"};
+        Integer [] arr = {i};
+        
+        Generic <Integer, String> gen1 = new Generic<>(i, s);
+        Generic <Byte, Integer> gen2 = new Generic <> (b, arr);
     }
 }
