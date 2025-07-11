@@ -31,7 +31,7 @@ public abstract class Product implements IProduct {
 
     @Override
     public boolean hasSpace() {
-        // TODO Auto-generated method stub
+        // TOD Auto-generated method stub
         return false;
     }
 
@@ -43,7 +43,7 @@ public abstract class Product implements IProduct {
 
     @Override
     public void putInto() {
-        // TODO Auto-generated method stub
+        // TOD Auto-generated method stub
         
     }
     public String toString() {

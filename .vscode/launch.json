@@ -6,6 +6,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Ex01",
+            "request": "launch",
+            "mainClass": "local.collections.Ex01",
+            "projectName": "demo-concepts"
+        },
+        {
+            "type": "java",
+            "name": "Demo08Iterator",
+            "request": "launch",
+            "mainClass": "local.collections.Demo08Iterator",
+            "projectName": "demo-concepts"
+        },
+        {
+            "type": "java",
             "name": "ExerciseList",
             "request": "launch",
             "mainClass": "local.collections.ExerciseList",
