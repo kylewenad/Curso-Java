@@ -1,4 +1,4 @@
-package local.collections.Ex04;
+package local.collections.Exercises.Ex04;
 
 public interface IShape {
     

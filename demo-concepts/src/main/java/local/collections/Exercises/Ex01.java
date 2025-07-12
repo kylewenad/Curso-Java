@@ -1,4 +1,4 @@
-package local.collections;
+package local.collections.Exercises;
 
 import java.util.Stack;
 

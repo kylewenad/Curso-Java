@@ -1,11 +1,11 @@
 package local.collections;
 
-public class Person {
+public class Person implements Comparable<Person>{
 
-    public static int numOfPerson = 0;
+    public static int countInstances = 0;
     // Método static o de clase
-    public static void updateNumOfPerson(){
-        numOfPerson++;
+    public static void updateCounter(){
+        countInstances++;
         //este método incrementa el numero de personas instanciadas
     }
     
@@ -30,26 +30,40 @@ public class Person {
         this.name = name;
         this.surname = surname;
         this.age = age;
-        updateNumOfPerson();
+        updateCounter();
     }
 
     private String getFullName() {
-        return name + surname + age;
+        return name + " " + surname;
     }
 
     //Método de instancia
     public void greetings() {
-        System.out.printf("Hola soy %s %s y tengo %s años.\n", name, surname, age);
+        System.out.printf("Hola soy %s y tengo %s años.\n", getFullName(), age);
       }  
 
     @Override
     public String toString() {
-        return;
+        return "Person [name=" + name + ", surname=" + surname + ", age=" + age + "]";    
     }
 
     @Override
     public int compareTo(Person other) { //son comparaciones numéricas, NO booleanas
+        //Para poder hacer las comparaciones se ordenan y después se hace la comparación
+        // Ordena por nombre ascendente
+        // return this.name.compareTo(other.name);
+        // Ordena por apellido ascendente
+        // return this.surname.compareTo(other.surname);
+        // Ordena por edad ascendente
+        // return this.age - other.age;
+        // Ordena por apellido y luego por nombre
+        int nameComparison = this.surname.compareTo(other.surname);
 
-    }
-
+        if (nameComparison != 0) {
+            return nameComparison;
+        }
+        return this.name.compareTo(other.name);
+        }
 }
+
+

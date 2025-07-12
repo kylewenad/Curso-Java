@@ -1,5 +1,10 @@
 package local.collections;
 
+import java.util.HashSet;
+import java.util.LinkedHashSet;
+import java.util.Set;
+import java.util.TreeSet;
+
 public class Demo07SetPerson {
 
     Person person1 = new Person("Charlie", "Pan", 27);
@@ -7,20 +12,36 @@ public class Demo07SetPerson {
     Person person3 = new Person("Sebastián", "Paz", 35);
 
     public void makeHashSetPersons() {
-        person.add(person1);
-        person.add(person2);
-        person.add(person3);
+        //Crear un conjunto de objetos de Person
+        Set<Person> persons = new HashSet<>();
+
+        persons.add(person1);
+        persons.add(person2);
+        persons.add(person3);
 
         System.out.println(persons);
     }
 
     public void makeLinkedSetPerson(){
-
+        //Crear un conjunto de objetos Person
+        Set<Person> persons = new LinkedHashSet<>();
+        
+        persons.add(person1);
+        persons.add(person2);
+        persons.add(person3);
+        
+        System.out.println(persons);
     }
 
     public void makeTreeSetPerson() {
-    Set<Person> persons = newTreeset<>();
-    
+        
+        Set<Person> persons = new TreeSet<>();
+
+        persons.add(person1);
+        persons.add(person2);
+        persons.add(person3);
+
+        System.out.println(persons);
     }
 
     public static void main(String[] args) {
