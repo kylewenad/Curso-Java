@@ -52,7 +52,7 @@ public class Employee implements Comparable <Employee>{
     @Override
     public int compareTo(Employee other) {
 
-        int diffDays = (int)(other.calculatEmployDays() - this.caculateEmployDays());
+        int diffDays = (int)(other.calculateEmployDays() - this.caculateEmployDays());
         
         if (diffDays == 0) {
             return this.id - other.id;
