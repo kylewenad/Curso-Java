@@ -10,7 +10,6 @@ public class Generic <T, U> {
         this.baz = baz;
     }
 
-    @SuppressWarnings("unused")
     public static void main(String[] args) {
         
         Byte b = 2;
