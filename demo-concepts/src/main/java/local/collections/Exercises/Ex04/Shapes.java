@@ -12,8 +12,6 @@ public class Shapes {
     
         listShapes.add(new Triangle(3, 6));
         listShapes.add(new Triangle(2, 5));
-    
-
     }
 
     public static double addAllAreas() {
