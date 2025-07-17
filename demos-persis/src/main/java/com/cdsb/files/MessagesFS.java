@@ -1,27 +1,33 @@
 package com.cdsb.files;
 
 public enum MessagesFS {
-    DIR_NOT_EX("Directory %s does not exist"),
-    DIR_NOT("%s is not a directory"),
-    FIL_NOT_FOUND("No files found in the directory: %s"),
-    DIR_EX("Directory %s exist"),
-    FIL_EX("File %s exist"),
-    FAIL_DIR("Failed to create directory: "),
-    DIR_CREATED("Directory %s created"),
-    FAIL_DEL("Failed to delete: %s %s"),
-    DEL_OK("%s %s deleted."),
-    FAIL_CREATE("Failed to created file: %s"),
-    FIL_CREATE("File %s created."),
-    FIL_EMPTY("Content empty, nothing to write to file: %s"),
-    FAIL_WRITE("Error writing file: %s"),
-    WRITING("Writing to file %s: %s"),
-    FIL_NOT_EX("File does not exist: %s"),
-    FAIL_READ("Error reading file: %s")
     
-        String message;
+    DIR_CREATED("DIR", "Directory %s created"),
+    DIR_EX("DIR", "Directory %s exist"),
+    FIL_CREATE("CREATE", "File %s created."),
+    FIL_EX("FIL","File %s exist"),
+    FIL_EMPTY("EMPTY","Content empty, nothing to write to file: %s"),
+    DEL_OK("DEL", "%s %s deleted."),
+    WRITING("WRITE","Writing to file %s: %s"),
+    
+    DIR_NOT_EX("NOT", "Directory %s does not exist"),
+    DIR_IS_NOT("NOT","%s is not a directory"),
+    FIL_NOT_EX("NOT", "File does not exist: %s"),
+    FIL_NOT_FOUND("NOT", "No files found in the directory: %s"),
+    
+    FAIL_DIR_CREATE("FAIL", "Failed to create directory: "),
+    FAIL_FIL_CREATE("FAIL","Failed to created file: %s"),
+    FAIL_DEL("FAIL", "Failed to delete: %s %s"),
+    ERROR_WRITE("ERROR", "Error writing file: %s"),
+    ERROR_READ("ERROR", "Error reading file: %s"),
+    ERROR_LIST("ERROR", "Error listing from: %s");
+        
+    String code;
+    String message;
 
 
-    public MessagesFS(String message) {
+    private MessagesFS(String code, String message) {
+        this.code = code;
         this.message = message;
     }
 }

@@ -24,14 +24,42 @@ public class FileSystem2 {
         }
 
         try {
-            Files.list(path).forEach((p) -> {
+            Files.list(path).forEach((p) -> { //para saber el tipo de documento 'D' carpeta, 'F' archivo
                 char type = Files.isDirectory(p) ? 'D' :'F';
                 sb.append("[").append(type).append("]");
                 sb.append(pathName.toString()).append("\n");
             });
             return sb.toString();
         } catch (IOException e) {
-            return e.getMessage();
+            return MessagesFS.FAIL_READ + "\n" + e.getMessage();
+        }
+    }
+
+    public static String listFiles(String pathName, boolean onlyFiles) {
+        StringBuilder sb = new StringBuilder();
+        if(!onlyFiles) {
+            return listFiles(pathName);
+        }
+
+        Path path = Paths.get(pathName);
+        
+        if (Files.notExists(path)) {
+            return MessagesFS.FIL_NOT_EX.message.formatted(pathName);
+        }
+
+        if(!Files.isDirectory(path)) {
+            return MessagesFS.DIR_NOT.message.formatted(pathName);
+        }
+
+        try {
+            Files.list(path).filter(file ->!Files.isDirectory(file)).forEach((p) -> {
+                char type = Files.isDirectory(p) ? 'D' : 'F';
+                sb.append("[").append(type).append("]");
+                sb.append(p.getFileName()).append("\n");
+            });
+            return sb.toString();
+        } catch (IOException e) {
+            return MessagesFS.FAIL_READ + "\n" + e.getMessage();
         }
     }
 
@@ -77,9 +105,9 @@ public class FileSystem2 {
         
         Path path = Path.of(pathName);
         
-        if(Files.isDirectory(path)) {
+        if(Files.isDirectory(path) && Files.notExists(path)) {
             try {
-                Files.deleteIfExists(path);
+                Files.delete(path);
             } catch (IOException e) {
                 e.getMessage();
             }
@@ -91,19 +119,16 @@ public class FileSystem2 {
         }
 
         if(Files.exists(path)) {
-            try {
-                Files.delete(path);
-            } catch (IOException e) {
-               e.getMessage();
+            while (Files.exists(path)) {
+                try {
+                    Files.delete(path);
+                    return MessagesFS.DEL_OK.message;
+                } catch (IOException e) {
+                    e.getMessage();
+                }
             }
-            return MessagesFS.DEL_OK.message;
         }
-
-        if(Files.notExists(path)) {
-            return MessagesFS.FIL_NOT_EX.message;
-        }
-        return pathName;
-        
+        return MessagesFS.FIL_EMPTY.message; 
     }
 
 
@@ -157,7 +182,10 @@ public class FileSystem2 {
         return lines;
     }
 
-    public static String readFileToString() {
+    public static String readFileToString(String pathName) {
+        
+        Path path = Paths.get(pathName);
+        
         return "";
     }
 

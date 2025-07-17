@@ -1,4 +1,4 @@
-package local.collections.Exercises.Ex04;
+package local.collections.exercises.ex04;
 
 public class Triangle implements IShape{
 

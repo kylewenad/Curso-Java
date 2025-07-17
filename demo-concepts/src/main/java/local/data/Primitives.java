@@ -69,7 +69,7 @@ public class Primitives {
         System.out.println("BigDecimal: " + nf.format(bigDecimal));
         System.out.println("BigInteger: " + nf.format(bigInteger));
     
-        BigDecimal result = bigDecimal.add
+        BigDecimal result = bigDecimal.add;
         
     }
 

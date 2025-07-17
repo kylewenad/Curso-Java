@@ -4,9 +4,13 @@
         "BIZZUM",
         "cdsb",
         "Gorko",
+        "jacoco",
         "jupiter",
         "mockito",
-        "Seteamos"
+        "persis",
+        "serialización",
+        "Seteamos",
+        "sublistas"
     ],
     "java.project.sourcePaths": [
         "demos-oop/soop/src"

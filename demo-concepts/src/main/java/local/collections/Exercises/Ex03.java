@@ -1,5 +1,5 @@
 
-package local.collections.Exercises;
+package local.collections.exercises;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,13 +8,8 @@ import local.collections.Employee;
 
 public class Ex03 {
 
-    static List<Employee> list = new ArrayList<>();
-    static 
-    public static void main(String[] args) {
-        
-        list.add("Pepe", )
+    private List<Employee> list = new ArrayList<>();
 
-        sortlist();
-        System.out.println(list);
-    }
 }
+
+
