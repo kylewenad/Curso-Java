@@ -20,7 +20,7 @@ public class FileSystem2 {
         }
 
         if (!Files.isDirectory(path)){
-            return MessagesFS.DIR_NOT.message;
+            return MessagesFS.DIR_IS_NOT.message;
         }
 
         try {
@@ -31,7 +31,7 @@ public class FileSystem2 {
             });
             return sb.toString();
         } catch (IOException e) {
-            return MessagesFS.FAIL_READ + "\n" + e.getMessage();
+            return MessagesFS.ERROR_READ + "\n" + e.getMessage();
         }
     }
 
@@ -48,7 +48,7 @@ public class FileSystem2 {
         }
 
         if(!Files.isDirectory(path)) {
-            return MessagesFS.DIR_NOT.message.formatted(pathName);
+            return MessagesFS.DIR_IS_NOT.message.formatted(pathName);
         }
 
         try {
@@ -59,7 +59,7 @@ public class FileSystem2 {
             });
             return sb.toString();
         } catch (IOException e) {
-            return MessagesFS.FAIL_READ + "\n" + e.getMessage();
+            return MessagesFS.ERROR_READ + "\n" + e.getMessage();
         }
     }
 
@@ -73,14 +73,14 @@ public class FileSystem2 {
         }
 
         if(Files.exists(path) && !Files.isDirectory(path)) {
-            return MessagesFS.DIR_NOT.message;
+            return MessagesFS.DIR_IS_NOT.message;
         }
 
         try {
             Files.createDirectories(path);
             return MessagesFS.DIR_CREATED.message;
         } catch (Exception e) {
-            return MessagesFS.FAIL_DIR.message.formatted(pathname) + "\n" +
+            return MessagesFS.FAIL_DIR_CREATE.message.formatted(pathname) + "\n" +
             e.getMessage();
         }
 
@@ -96,7 +96,7 @@ public class FileSystem2 {
         try {
             Files.delete(path);
         } catch (Exception e) {
-            return MessagesFS.FAIL_DEL.message.formatted(pathName)
+            return MessagesFS.FAIL_DEL.message.formatted(pathName);
             e.getMessage();
         }
     }
@@ -115,7 +115,7 @@ public class FileSystem2 {
         }
 
         if(!Files.isDirectory(path)) {
-            return MessagesFS.DIR_NOT.message;
+            return MessagesFS.DIR_IS_NOT.message;
         }
 
         if(Files.exists(path)) {
@@ -146,7 +146,7 @@ public class FileSystem2 {
                 Files.createFile(path);
                 return MessagesFS.FIL_CREATE.message;
             } catch (IOException e) {
-               return MessagesFS.FAIL_CREATE.message.formatted(pathName) + "\n" +
+               return MessagesFS.FAIL_FIL_CREATE.message.formatted(pathName) + "\n" +
                 e.getMessage();
             }
         }
@@ -159,7 +159,7 @@ public class FileSystem2 {
         Path path = Paths.get(pathName);
 
         if (content == null || content.isEmpty()) {
-            return MessagesFS.FIL_EMPTY.message.formatted(pathName)
+            return MessagesFS.FIL_EMPTY.message.formatted(pathName);
         }
         if (Files.notExists(path)) {
             String result = createFile(pathName);
@@ -170,7 +170,7 @@ public class FileSystem2 {
         try {
             Files.writeString(path, content);
         } catch (IOException e) {
-            return MessagesFS.FAIL_WRITE.message.formatted(pathName) + "\n" +
+            return MessagesFS.ERROR_WRITE.message.formatted(pathName) + "\n" +
             e.getMessage();
         }
         return MessagesFS.WRITING.message.formatted(pathName);
