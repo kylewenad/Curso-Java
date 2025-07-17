@@ -2,6 +2,11 @@ package local.collections.exercises.ex04;
 
 public class Circle implements IShape{
     
+    @Override
+    public String toString() {
+        return "Círculo [radio = " + radio + "]";
+    }
+
     double radio;
     
     public Circle(double radio) {

@@ -16,4 +16,9 @@ public class Triangle implements IShape{
         return result;
     }
 
+    @Override
+    public String toString() {
+        return "Triángulo [base = " + base + ", altura = " + high + "]";
+    }
+
 }
