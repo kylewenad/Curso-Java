@@ -4,12 +4,12 @@ import java.util.Collections;
 import java.util.Stack;
 //Use la clase Stack de Java para invertir una palabra.
 //A partir de este programa determine si una palabra es palíndromo (se lee igual de izquierda a derecha que de derecha a izquierda)
-public class Ex01 {
+public class Ex02 {
     
     String word;
     String inverse;
 
-    public Ex01(String word){
+    public Ex02(String word){
         this.word = word;
         this.inverse = generateInverse();
     }
@@ -35,7 +35,7 @@ public class Ex01 {
 
     public static void main(String[] args) {
         
-        Ex01 ex1 = new Ex01("Hola");
+        Ex02 ex1 = new Ex02("Hola");
         ex1.showResult();
     }
     

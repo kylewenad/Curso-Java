@@ -1,0 +1,5 @@
+[Ex01]. Use la clase Stack de Java para invertir una palabra. A partir de este programa determine si una palabra es palíndromo (se lee igual de izquierda a derecha que de derecha a izquierda: reconocer, rotor, somos,..)
+
+[Exo3] Defina una List con la clase Empleado antes definida (con nombre, apellidos, fecha de contratación y número de empleado). Use la función sort de la clase Collections para ordenar la lista. Use la antigüedad como criterio a seguir (es “mayor” si es más antiguo) y si entraron en el mismo día, utilice el número de empleado para desempatar.
+
+Esta ordenación se reflejará en un método de la clase Empleado, compareTo(obj o), que permite comparar el objeto en curso (this) con el objeto recibido, que devuelve -1 si es menor que el recibido, 0 si son iguales y 1 si es mayor que el recibido.

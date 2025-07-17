@@ -3,12 +3,17 @@ package local.collections.exercises;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import local.collections.Employee;
-
+//Use la función sort de la clase Collections para ordenar la lista.
 public class Ex03 {
 
-    private List<Employee> list = new ArrayList<>();
+    List<Employee> list = new ArrayList<>();
+    List<String> employees = new ArrayList<>();
+    
+    void addEmployees() {
+        employees.add("Amanda","Sanchez",10/10/2010,100);
+        
+
+    }
 
 }
 

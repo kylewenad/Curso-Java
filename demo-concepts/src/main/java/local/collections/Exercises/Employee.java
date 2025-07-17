@@ -4,34 +4,21 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-//Defina una lista List con la clase Empleado antes definida 
-//(con nombre, apellidos, fecha de contratación y
-//número de empleado). 
-//Use la función sort de la clase Collections para ordenar
-//la lista. Use la antigüedad como criterio a seguir 
-//(es “mayor” si es más antiguo) y si entraron en el 
-//mismo día, utilice el número de empleado para desempatar.
-//Esta ordenación se reflejará en un método de la 
-//clase Empleado, compareTo(obj o), que permite comparar 
-//el objeto en curso (this) con el objeto recibido, 
-//que devuelve -1 si es menor que el recibido, 0 si son 
-//iguales y 1 si es mayor que el recibido.
+//Defina una List con la clase Empleado antes definida
+//(con nombre, apellidos, fecha de contratación y número de empleado).
 public class Employee implements Comparable <Employee>{
     List<String> employees = new ArrayList<>();
     private String name;
     private String surname;
     private LocalDate dateOfContraction;
-    private String employeeNumber;
+    private String employeeId;
     
     void Employee(String name, String surname, String dateOfContraction, String employeeNumber) {
         this.name = name;
         this.surname = surname;
-        this. dateOfContraction = formatDate(dateOfContraction);
-        this.employeeNumber = employeeNumber;
+        this.dateOfContraction = formatDate(dateOfContraction);
+        this.employeeId = employeeNumber;
     }
-
-    
-   
 
     private LocalDate formatDate(String dateOfContraction2) {
         // TODO Auto-generated method stub
@@ -46,7 +33,7 @@ public class Employee implements Comparable <Employee>{
     public String toString() {
         return 
             "Employee [name=" + name + ", surname=" + surname + ", dateOfContraction=" + dateOfContraction
-            + ", employeeNumber=" + employeeNumber + "]";
+            + ", employeeId=" + employeeId + "]";
     }
 
     @Override

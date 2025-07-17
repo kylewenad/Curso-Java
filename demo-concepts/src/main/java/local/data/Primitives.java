@@ -3,6 +3,7 @@ package local.data;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.text.NumberFormat;
+import java.util.Formatter;
 import java.util.Locale;
 
 @SuppressWarnings("unused")
@@ -32,45 +33,62 @@ public class Primitives {
         //Integer iObj = new Integer(1);
         
         //Autoboxing
-        Byte byteObj = 1;
-        Short shortObj = 1;
-        Integer intObj = 1;
-        Long longObj = (long) 1;
-        Float floatObj = 1f;
-        Double doubleObj = 1d;
-        Character charObj = 'A';
-        Boolean booleanObj = true;
+        Byte byteObj = 1; //byte -> Byte
+        Short shortObj = 1; // short -> Short
+        Integer intObj = 1; // int -> Integer
+        Long longObj = (long) 1;// long -> Long
+        Float floatObj = 1f;//float-> Float
+        Double doubleObj = 1d; //double -> Double
+        Character charObj = 'A'; //char -> Character
+        Boolean booleanObj = true; //boolean -> Boolean
 
         //Unboxing
-        byte byteNumber = byteObj;
-        Short shortNumber = shortObj;
-        Integer intNumber = intObj;
-        Long longNumber = longObj;
-        Float floatNumber = floatObj;
-        Double doubleNumber = doubleObj;
-        Character charNumber = charObj;
-        Boolean booleanNumber = true;
+        byte byteNumber = byteObj; //Byte -> byte
+        short shortNumber = shortObj;// Short -> short
+        int intNumber = intObj; //Integer -> int
+        long longNumber = longObj; //Long -> long
+        float floatNumber = floatObj; // Float -> float
+        double doubleNumber = doubleObj; // Double -> double
+        char character = charObj; //Character -> char
+        Boolean booleanValue = booleanObj; //Boolean -> boolean
     }
 
     void numbersRanges() {
+
+        NumberFormat nf = NumberFormat.getInstance(Locale.GERMANY);
         
-        System.out.println("--------------------------------------------");
+        System.out.println("-----------------------------------------------------------");
         System.out.println("Max and Min values of primitive types:");
-        System.out.println("--------------------------------------------");
-        System.out.println("Character: " + Character.MAX_VALUE + "," + Character.MIN_VALUE);
+        System.out.println("Byte: " + Byte.MAX_VALUE + ", " + Byte.MIN_VALUE);
+        System.out.println("Short: " + Short.MAX_VALUE + ", " + Short.MIN_VALUE);
+        System.out.println("Integer: " + Integer.MAX_VALUE + ", " + Integer.MIN_VALUE);
+        System.out.println("Integer: " + nf.format(Integer.MAX_VALUE) + ", " + nf.format(Integer.MIN_VALUE));
+        System.out.println("Long: " + Long.MAX_VALUE + ", " + Long.MIN_VALUE);
+        System.out.println("Long: " + nf.format(Long.MAX_VALUE) + ", " + nf.format(Long.MIN_VALUE));
+        System.out.println("Float: " + Float.MAX_VALUE + ", " + Float.MIN_VALUE);
+        System.out.println("Float: " + nf.format(Float.MAX_VALUE) + ", " + nf.format(Float.MIN_VALUE));
+        System.out.println("Double: " + Double.MAX_VALUE + ", " + Double.MIN_VALUE);
+        System.out.println("Double: " + nf.format(Double.MAX_VALUE) + ", " + nf.format(Double.MIN_VALUE));
+        // No hay formato para char y boolean
+        System.out.println("Character: " + Character.MAX_VALUE + ", " + Character.MIN_VALUE);
+        System.out.println("Boolean: " + Boolean.TRUE + ", " + Boolean.FALSE);
+        System.out.println("-----------------------------------------------------------");
     }
 
     void bigNumbers() {
 
+        NumberFormat nf = NumberFormat.getInstance(Locale.GERMANY);
+        
         //BigDecimal y BigInteger
-        BigDecimal bigDecimal = new BigDecimal();
-        BigInteger bigInteger = new BigInteger();
+        BigDecimal bigDecimal = new BigDecimal("1234567890.1234567890");
+        BigInteger bigInteger = new BigInteger("1234567890");
 
         System.out.println("BigDecimal: " + nf.format(bigDecimal));
         System.out.println("BigInteger: " + nf.format(bigInteger));
-    
-        BigDecimal result = bigDecimal.add;
         
+        //Operaciones con BigDecimal
+        BigDecimal result = bigDecimal.add(new BigDecimal("1.0"));
+        System.out.println("Resultado de la suma: " + result);    
     }
 
     void genericNumber(){
@@ -80,14 +98,26 @@ public class Primitives {
 
     void formats() {
         //Formatos de salida
-        System.out.printf("byte: %d, short: %d, int: %d, long: %d, float: %.2f, double: &.2f, char: %c, boolean: %b%n"
+        System.out.printf("byte: %d, short: %d, int: %d, long: %d, float: %.2f, double: &.2f, char: %c, boolean: %b%n",
             (byte) 1, (short) 1, 1, 1L, 1.0f, 1.0d, 'A', true);
-    
         
+        System.out.printf("byte: %s, short: %s, int: %s, long: %s, float: %.2f, double: %.2f, char: %s, boolean: %s%n",
+            (byte) 1, (short) 1, 1, 1L, 1.0f, 1.0d, 'A', true);//boolean diferente?
+        
+        Formatter formatter = new Formatter();
+        formatter.format("byte: %d, short: %d, int: %d, long: %d, float: %.2f, double: %.2f, char: %c, boolean: %b%n",
+                (byte) 1, (short) 1, 1, 1L, 1.0f, 1.0d, 'A', true);
+        System.out.println(formatter);
+        formatter.close();
+        
+        NumberFormat nf = NumberFormat.getInstance(Locale.GERMANY);
+        System.out.printf("Número formateado: %s%n", nf.format(1234567.89));
+
+        // chcp 65001` to switch the command prompt encoding to UTF-8
         NumberFormat cf = NumberFormat.getCurrencyInstance(Locale.GERMANY);
-    
+        System.out.printf("Número formateado como moneda: %s%n", cf.format(1234567.89));
         }
-    
+    //TODO no imprime bien, arreglar
     public static void main(String[] args) {
      Primitives primitives = new Primitives();
         primitives.numbersRanges();   

@@ -6,7 +6,7 @@ import java.util.Iterator;
 import java.util.List;
 
         
-    public class ExerciseList {
+    public class Ex01OOP_week {
             
         private List<String> listDays = new ArrayList<>();
         private List<String> list2 = new ArrayList<>(listDays);
@@ -163,7 +163,7 @@ import java.util.List;
         
     public static void main(String[] args) {
         
-        ExerciseList ex = new ExerciseList();
+        Ex01OOP_week ex = new Ex01OOP_week();
         ex.answerOfExercise();
 
     }
