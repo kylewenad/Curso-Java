@@ -3,14 +3,24 @@
     "cSpell.words": [
         "BIZZUM",
         "cdsb",
+        "COVEREDRATIO",
+        "databind",
+        "fasterxml",
+        "github",
         "Gorko",
+        "inicialización",
+        "jackson",
         "jacoco",
         "jupiter",
         "mockito",
+        "ngeor",
         "persis",
+        "puppycrawl",
+        "Refactorización",
         "serialización",
         "Seteamos",
-        "sublistas"
+        "sublistas",
+        "TOTALCOUNT"
     ],
     "java.project.sourcePaths": [
         "demos-oop/soop/src"

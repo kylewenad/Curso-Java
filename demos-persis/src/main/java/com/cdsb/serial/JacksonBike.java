@@ -1,10 +1,11 @@
-package com.cdsb.files.serial;
+package com.cdsb.serial;
 
-import java.nio.file.FileSystem;
 import java.util.ArrayList;
 import java.util.List;
 
 import com.cdsb.files.FileSystem2;
+import com.fasterxml.jackson.annotation.PropertyAccessor;
+import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -16,6 +17,7 @@ public class JacksonBike {
     String pathName = "demo-persis/resources/demo";
     
     JacksonBike(){
+        mapper.setVisibility(PropertyAccessor.FIELD, Visibility.ANY);
         Bicycle[] bicycles = {
             new Bicycle("Decathlon", "Nose",30, "black", 20, true),
             new Bicycle("Giant", "Defy", 30, "blue", 18, false),        
@@ -25,7 +27,6 @@ public class JacksonBike {
 
     //serialize
     public String toJSON(){
-        
         try {
             String jsonString = mapper.writeValueAsString(listOfBikes);
             return jsonString;
@@ -34,8 +35,14 @@ public class JacksonBike {
         }
     }
     //deserialize or parse
-    public void fromJSON(String jsonString) {
-        mapper.
+    public Bicycle[] fromJSON(String jsonString) {
+        Bicycle[] result = {};
+        try {
+            result = mapper.readValue(jsonString, Bicycle[].class);
+        } catch (JsonProcessingException e) {
+            System.out.println(e.getMessage());
+        }
+        return result;
     }
 
     public String save(String data) {

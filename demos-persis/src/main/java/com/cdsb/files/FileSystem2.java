@@ -80,7 +80,9 @@ public class FileSystem2 {
             Files.createDirectories(path);
             return MessagesFS.DIR_CREATED.message;
         } catch (Exception e) {
-            return MessagesFS.FAIL_DIR_CREATE.message.formatted(pathname) + "\n" +
+            return MessagesFS.FAIL_DIR_CREATE.message.formatted(
+                
+            ) + "\n" +
             e.getMessage();
         }
 

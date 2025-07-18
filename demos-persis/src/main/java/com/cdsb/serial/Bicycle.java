@@ -1,4 +1,4 @@
-package com.cdsb.files.serial;
+package com.cdsb.serial;
 
 public class Bicycle {
 
