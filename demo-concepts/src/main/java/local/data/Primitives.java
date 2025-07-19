@@ -6,7 +6,6 @@ import java.text.NumberFormat;
 import java.util.Formatter;
 import java.util.Locale;
 
-@SuppressWarnings("unused")
 public class Primitives {
 
     byte byteNumber = 1;
@@ -98,7 +97,7 @@ public class Primitives {
 
     void formats() {
         //Formatos de salida
-        System.out.printf("byte: %d, short: %d, int: %d, long: %d, float: %.2f, double: &.2f, char: %c, boolean: %b%n",
+        System.out.printf("byte: %d, short: %d, int: %d, long: %d, float: %.2f, double: %.2f, char: %c, boolean: %b%n",
             (byte) 1, (short) 1, 1, 1L, 1.0f, 1.0d, 'A', true);
         
         System.out.printf("byte: %s, short: %s, int: %s, long: %s, float: %.2f, double: %.2f, char: %s, boolean: %s%n",
@@ -117,7 +116,7 @@ public class Primitives {
         NumberFormat cf = NumberFormat.getCurrencyInstance(Locale.GERMANY);
         System.out.printf("Número formateado como moneda: %s%n", cf.format(1234567.89));
         }
-    //TODO no imprime bien, arreglar
+    
     public static void main(String[] args) {
      Primitives primitives = new Primitives();
         primitives.numbersRanges();   
