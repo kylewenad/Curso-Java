@@ -9,10 +9,9 @@ public class Bicycle {
     private int gears;
     private boolean isCustomizable;
     
-    public Bicycle(){
+    public Bicycle(){}
         //constructor por defecto para la serialización
-    }
-
+    
     public Bicycle(String brand, String model, int radioWheel, String color, int gears, boolean isCustomizable) {
         this.brand = brand;
         this.model = model;

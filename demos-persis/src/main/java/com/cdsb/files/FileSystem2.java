@@ -16,7 +16,7 @@ public class FileSystem2 {
         Path path = Path.of(pathName);//crea objetos
         
         if (Files.notExists(path)){
-            return MessagesFS.FIL_NOT_EX.message.formatted(pathName);
+            return MessagesFS.DIR_NOT_EX.message.formatted(pathName);
         }
 
         if (!Files.isDirectory(path)){
@@ -27,11 +27,11 @@ public class FileSystem2 {
             Files.list(path).forEach((p) -> { //para saber el tipo de documento 'D' carpeta, 'F' archivo
                 char type = Files.isDirectory(p) ? 'D' :'F';
                 sb.append("[").append(type).append("]");
-                sb.append(pathName.toString()).append("\n");
+                sb.append(p.getFileName()).append("\n");
             });
             return sb.toString();
         } catch (IOException e) {
-            return MessagesFS.ERROR_READ + "\n" + e.getMessage();
+            return MessagesFS.ERROR_LIST + "\n" + e.getMessage();
         }
     }
 
@@ -73,7 +73,7 @@ public class FileSystem2 {
         }
 
         if(Files.exists(path) && !Files.isDirectory(path)) {
-            return MessagesFS.DIR_IS_NOT.message.formatted(pathName);
+            return MessagesFS.FIL_EX.message.formatted(pathName);
         }
 
         try {
@@ -149,7 +149,7 @@ public class FileSystem2 {
     }
 
     //Escribir en ficheros
-    public static String writeFile(String pathName,String content) {
+    public static String writeFile(String pathName, String content) {
         
         Path path = Paths.get(pathName);
 
@@ -184,6 +184,7 @@ public class FileSystem2 {
             return lines;
         } catch (IOException e) {
             lines.add(MessagesFS.ERROR_READ.message.formatted(pathName));
+            lines.add(e.getMessage());
             return lines;
         }
     }
@@ -199,22 +200,21 @@ public class FileSystem2 {
         } catch (IOException e) {
             return MessagesFS.ERROR_READ.message.formatted(pathName) + "\n" + e.getMessage();
         }
-        
     }
 
     public static void main(String[] args) {
         String pathName;
         pathName = "no_folder";
-        pathName = "demo-persis/pom.xml";
-        pathName = "demo-persis";
-        System.out.println(pathName);
+        pathName = "demos-persis/pom.xml";
+        pathName = "demos-persis/resources";
+        System.out.println(listFiles(pathName));
         pathName = "demos-persis/resources";
         pathName = "demos-persis/pom.xml";
         pathName = "demos-persis/resources/sample";
         System.out.println(createFolder(pathName));
-        pathName = "demo-persis/resources/sample/sample.txt";
+        pathName = "demos-persis/resources/sample/sample.txt";
         System.out.println(writeFile(pathName, "Holaaaaaaaaaaaaa"));
-        pathName = "demos-persis/resources/sample.txt";
+        pathName = "demos-persis/resources/sample/sample.txt";
         System.out.println(readFileToList(pathName));
     }
 }

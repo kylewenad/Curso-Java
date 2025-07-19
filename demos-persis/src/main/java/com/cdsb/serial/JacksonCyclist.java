@@ -52,7 +52,7 @@ public class JacksonCyclist {
     }
 
     void readBikes() throws JsonMappingException, JsonProcessingException {
-        String pathName = "demo-persis/resources/bikes.json";
+        String pathName = "demos-persis/resources/bikes.json";
         String jsonString = FileSystem2.readFileToString(pathName);
         bikes = mapper.readValue(jsonString, Bicycle[].class);
     }
@@ -61,7 +61,7 @@ public class JacksonCyclist {
         try {
             JacksonCyclist jCyclist = new JacksonCyclist();
 
-            //jCyclist.saveCyclist2();
+            jCyclist.saveCyclist2();
         } catch (JsonProcessingException e) {
             e.printStackTrace();
         }

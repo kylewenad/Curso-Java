@@ -1,1 +1,18 @@
-[{"brand":"Decathlon","model":"Nose","radioWheel":30,"color":"black","gears":20,"isCustomizable":true},{"brand":"Giant","model":"Defy","radioWheel":30,"color":"blue","gears":18,"isCustomizable":false}]
+[
+    {
+        "brand": "Decathlon",
+        "model": "Nose",
+        "radioWheel": 30,
+        "color": "black",
+        "gears": 20,
+        "isCustomizable": true
+    },
+    {
+        "brand": "Giant",
+        "model": "Defy",
+        "radioWheel": 30,
+        "color": "blue",
+        "gears": 18,
+        "isCustomizable": false
+    }
+]

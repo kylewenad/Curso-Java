@@ -8,7 +8,7 @@ public class Cyclist {
     
     private String name;
     private LocalDate birthdate;
-    private List<Bicycle> bikes = new ArrayList<Bicycle>();
+    private List<Bicycle> bikes = new ArrayList<>();
 
     public void addBike(Bicycle bike) {
         bikes.add(bike);
