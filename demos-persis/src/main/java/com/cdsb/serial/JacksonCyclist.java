@@ -56,16 +56,12 @@ public class JacksonCyclist {
         String jsonString = FileSystem2.readFileToString(pathName);
         bikes = mapper.readValue(jsonString, Bicycle[].class);
     }
-    
-
     //deserialize or parse
-   
-
     public static void main(String[] args) {
         try {
             JacksonCyclist jCyclist = new JacksonCyclist();
 
-            jCyclist.saveCyclist2();
+            //jCyclist.saveCyclist2();
         } catch (JsonProcessingException e) {
             e.printStackTrace();
         }

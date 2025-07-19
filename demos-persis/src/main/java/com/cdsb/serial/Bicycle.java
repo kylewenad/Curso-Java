@@ -25,12 +25,11 @@ public class Bicycle {
     @Override
     public String toString() {
         return 
-            "-------------------------------------------" +
-            "Bicycle [brand=" + brand +
-            ", model=" + model + 
-            ", radioWheel=" + radioWheel + 
-            ", color=" + color + 
-            ", gears=" + gears + 
-            ", isCustomizable=" + isCustomizable + "]";
+            "Bicycle [brand = " + brand +
+            ",\nmodel = " + model + 
+            ",\nradioWheel = " + radioWheel + 
+            ",\ncolor = " + color + 
+            ",\ngears = " + gears + 
+            ",\nisCustomizable = " + isCustomizable + "]";
     }
 }

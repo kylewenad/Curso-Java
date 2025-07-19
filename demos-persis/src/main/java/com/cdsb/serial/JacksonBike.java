@@ -1,6 +1,7 @@
 package com.cdsb.serial;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import com.cdsb.files.FileSystem2;
@@ -14,7 +15,7 @@ public class JacksonBike {
     List<Bicycle> listOfBikes = new ArrayList<>();
     ObjectMapper mapper = new ObjectMapper();
 
-    String pathName = "demo-persis/resources/demo";
+    String pathName = "demos-persis/resources/bikes.json";
     
     JacksonBike(){
         mapper.setVisibility(PropertyAccessor.FIELD, Visibility.ANY);
@@ -28,8 +29,8 @@ public class JacksonBike {
     //serialize
     public String toJSON(){
         try {
-            String jsonString = mapper.writeValueAsString(listOfBikes);
-            return jsonString;
+            String jsonStr = mapper.writeValueAsString(listOfBikes);
+            return jsonStr;
         } catch (JsonProcessingException e) {
             return e.getMessage();
         }
@@ -47,7 +48,6 @@ public class JacksonBike {
 
     public String save(String data) {
         return FileSystem2.writeFile(pathName, data);
-
     }
 
     public String read() {
@@ -57,6 +57,10 @@ public class JacksonBike {
     public static void main(String[] args) {
         JacksonBike jBike = new JacksonBike();
         System.err.println(jBike.listOfBikes);
-        System.out.println(jBike.toJSON());
+        String jsonString = jBike.toJSON();
+        System.out.println(jBike.save(jsonString));
+        System.out.println("=".repeat (50));
+        Bicycle[] finalBikes = jBike.fromJSON(jBike.read());
+        System.out.println(Arrays.toString(finalBikes));
     }
 }

@@ -24,8 +24,8 @@ public class Cyclist {
     @Override
     public String toString() {
         return 
-            "Cyclist [name=" + name + 
-            ", birthdate=" + birthdate + 
-            ", bikes=" + bikes + "]";
+            "Cyclist [name = " + name + 
+            ",\nbirthdate = " + birthdate + 
+            ",\nbikes = " + bikes + "]";
     }
 }
