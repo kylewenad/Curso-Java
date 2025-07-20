@@ -11,7 +11,6 @@ public class FileSystem2 {
 
     //Leer lista ficheros y carpetas
     public static String listFiles(String pathName) {
-
         StringBuilder sb = new StringBuilder();
         Path path = Path.of(pathName);//crea objetos
         
@@ -204,17 +203,19 @@ public class FileSystem2 {
 
     public static void main(String[] args) {
         String pathName;
-        pathName = "no_folder";
-        pathName = "demos-persis/pom.xml";
+        //pathName = "no_folder";
+        //pathName = "demos-persis/pom.xml";
         pathName = "demos-persis/resources";
         System.out.println(listFiles(pathName));
-        pathName = "demos-persis/resources";
-        pathName = "demos-persis/pom.xml";
-        pathName = "demos-persis/resources/sample";
-        System.out.println(createFolder(pathName));
-        pathName = "demos-persis/resources/sample/sample.txt";
-        System.out.println(writeFile(pathName, "Holaaaaaaaaaaaaa"));
-        pathName = "demos-persis/resources/sample/sample.txt";
-        System.out.println(readFileToList(pathName));
+        //pathName = "demos-persis/resources";
+        //pathName = "demos-persis/pom.xml";
+        //pathName = "demos-persis/resources/sample/nose.txt";
+        //System.out.println(createFile(pathName));
+        //System.out.println(createFolder(pathName));
+        //pathName = "demos-persis/resources/sample/sample.txt";
+        //System.out.println(writeFile(pathName, "Holaaaaaaaaaaaaa"));
+        //pathName = "demos-persis/resources/sample/sample.txt";
+        //System.out.println(readFileToList(pathName));
+        //System.out.println(readFileToString(pathName));
     }
-}
+}//TODO no funciona

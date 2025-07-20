@@ -1,6 +1,5 @@
 package local.collections.exercises;
 
-import java.util.Collections;
 import java.util.Stack;
 //Use la clase Stack de Java para invertir una palabra.
 //A partir de este programa determine si una palabra es palíndromo (se lee igual de izquierda a derecha que de derecha a izquierda)

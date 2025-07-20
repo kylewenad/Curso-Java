@@ -5,7 +5,7 @@ import java.math.BigInteger;
 import java.text.NumberFormat;
 import java.util.Formatter;
 import java.util.Locale;
-
+@SuppressWarnings("unused")
 public class Primitives {
 
     byte byteNumber = 1;

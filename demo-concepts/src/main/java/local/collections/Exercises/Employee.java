@@ -3,10 +3,6 @@ package local.collections.exercises;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
-import java.util.ArrayList;
-import java.util.List;
-
-import javax.swing.text.DateFormatter;
 
 //Defina una List con la clase Empleado antes definida
 //(con nombre, apellidos, fecha de contratación y número de empleado).

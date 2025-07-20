@@ -2,7 +2,6 @@ package local.collections;
 //Los conjuntos(Set) son una colección de elementos únicos, sin orden específico.
 //Implementan la interfaz Collection y no permiten elementos duplicados.
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
