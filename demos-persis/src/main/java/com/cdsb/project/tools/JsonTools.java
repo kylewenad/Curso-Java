@@ -15,10 +15,9 @@ public class JsonTools {
     String filePath;
 
 
-    private JsonTools(){
-        
-    }
-    private static void setConfig() {
+    public JsonTools(String filePath){
+        this.filePath = filePath;
+    
         mapper.setVisibility(PropertyAccessor.FIELD,Visibility.ANY);// Para que sean visibles
                                                                     // This allows Jackson to serialize/deserialize private fields
         mapper.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS); // This is needed to avoid writing dates as timestamps
@@ -26,8 +25,7 @@ public class JsonTools {
     }
 
     //Obj -> (toJson) -> String (JSON)
-    public static <T extends Object> String toJson(T obj) {//cojo objeto(el padre de todos los objetos de java) y lo convierto a Json
-        setConfig();
+    public <T extends Object> String toJson(T obj) {//cojo objeto(el padre de todos los objetos de java) y lo convierto a Json
         try {
             return mapper.writeValueAsString(obj);
         } catch (JsonProcessingException e) {
@@ -37,10 +35,9 @@ public class JsonTools {
     }
 
     //String -> (fromJson) -> clase -> Obj
-    public static <T> T fromJson(String jsonString, Class <T> clazz) {//String con formato Json y me da un objeto Json
-        setConfig();
+    public <T> T fromJson(String json, Class <T> clazz) {//String con formato Json y me da un objeto Json
         try {
-            return mapper.readValue(jsonString, clazz);
+            return mapper.readValue(json, clazz);
         } catch (JsonProcessingException e) {
             e.printStackTrace();
             return null;
@@ -48,8 +45,7 @@ public class JsonTools {
         
     }
 
-    public static <T extends Object> void toJsonFile(T obj, String filePath) {
-        setConfig();
+    public <T extends Object> void toJsonFile(T obj) {
         try {
             String jSonValue = mapper.writeValueAsString(obj);
             FileSystem2.writeFile(filePath, jSonValue);
@@ -58,8 +54,7 @@ public class JsonTools {
         }
     }
 
-    public static <T> T fromJsonFile(String filePath, Class<T> clazz) {//String con formato Json y me da un objeto Json
-        setConfig();
+    public <T> T fromJsonFile(Class<T> clazz) {//String con formato Json y me da un objeto Json
         try {
         String jsonString = FileSystem2.readFileToString(filePath);
         return mapper.readValue(jsonString, clazz);

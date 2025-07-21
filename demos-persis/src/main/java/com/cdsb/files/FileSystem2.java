@@ -213,9 +213,9 @@ public class FileSystem2 {
         //System.out.println(createFile(pathName));
         //System.out.println(createFolder(pathName));
         //pathName = "demos-persis/resources/sample/sample.txt";
-        //System.out.println(writeFile(pathName, "Holaaaaaaaaaaaaa"));
+        //System.out.println(writeFile(pathName, "Hola :)"));
         //pathName = "demos-persis/resources/sample/sample.txt";
         //System.out.println(readFileToList(pathName));
         //System.out.println(readFileToString(pathName));
     }
-}//TODO no funciona
+}

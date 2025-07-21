@@ -43,8 +43,8 @@ public class JsonTools {
 
     public <T extends Object> void toJsonFile(T obj, String filePath) {
         try {
-            String jSonValue = mapper.writeValueAsString(obj);
-            FileSystem2.writeFile(filePath, jSonValue);
+            String json = mapper.writeValueAsString(obj);
+            FileSystem2.writeFile(filePath, json);
         } catch (JsonProcessingException e) {
             e.printStackTrace();
         }

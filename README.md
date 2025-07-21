@@ -28,7 +28,7 @@ Escritura en java:
 
 03-out
 Escribir algo de tres formas diferentes en pantalla
-println, printf, println con formato
+println, printf, println con formato.
     println -> sólo vale para String
     printf -> para String, variables (concatenación)
     println .formatted templated String - > para que imprima el mensaje del con una estructura del modo que quieras, se usan string y variables
