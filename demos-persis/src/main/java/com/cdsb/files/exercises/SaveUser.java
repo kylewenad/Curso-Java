@@ -72,10 +72,11 @@ public class SaveUser {
         System.out.println("-".repeat(50));
         System.out.println("Leído desde el fichero");
         System.out.println("-".repeat(50));
-        list.stream()forEach(System.out::println);
+        list.stream().forEach(System.out::println);
     }
 
-    @Override String toString() {
+    @Override
+    public String toString() {
         StringBuffer sb = new StringBuffer();
         sb.append("SaveUser\n");
         sb.append("name: ");
@@ -93,8 +94,8 @@ public class SaveUser {
         return sb.toString();
     }
     public static void main(String[] args) {
-        SaveUser user = new SaveUser();
-        user.askUserData();
+        SaveUser user = new SaveUser(String pathName);
+        user.askUserData(pathName);
         user.saveUserData(pathName);
         user.readUserData("demos-persis/resources/sample.txt");
     }
