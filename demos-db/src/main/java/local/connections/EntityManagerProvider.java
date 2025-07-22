@@ -1,4 +1,4 @@
-package local.entities;
+package local.connections;
 
 import java.util.HashMap;
 import java.util.Map;
