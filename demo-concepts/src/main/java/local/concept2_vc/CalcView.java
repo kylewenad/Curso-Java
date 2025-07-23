@@ -19,7 +19,7 @@ public class CalcView extends Calc{
         this.ctr.setNum2(number2);
     }
 
-    @SuppressWarnings("resource")
+    //@SuppressWarnings("resource")
     private int getInteger(String message) {
 
         Scanner scanner = new Scanner(System.in);
@@ -190,7 +190,7 @@ public class CalcView extends Calc{
     }
 
     void show(boolean alt) {
-        @SuppressWarnings("resource")
+        //@SuppressWarnings("resource")
         Scanner scanner = new Scanner (System.in);
         boolean wantContinue = true;
 

@@ -29,4 +29,10 @@ public class MeetingRecord {
     public String toString() {
         return "MeetingRecord [id=" + id + ", content=" + content + "]";
     }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    
 }

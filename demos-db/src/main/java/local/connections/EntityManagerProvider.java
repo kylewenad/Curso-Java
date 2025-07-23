@@ -13,7 +13,7 @@ public class EntityManagerProvider {
     private final static String PERSISTENCE_UNIT = "demos-db";
     private static EntityManagerFactory entityManagerFactory;
     
-    static Map <String, String> getProps(){
+    static Map <String, String> getProps(){//mismas propiedades que persistence
         Map<String, String> props = new HashMap<>();
         Dotenv dotEnv = Dotenv.load();
         props.put("jakarta.persistence.jdbc.url", dotEnv.get("DB_URL"));

@@ -65,7 +65,7 @@ public class Calculator {
         showResult("resto", restDivision());
     }
 
-    @SuppressWarnings("resource")
+    //@SuppressWarnings("resource")
     private int getInteger(String message) {
 
         Scanner scanner = new Scanner(System.in);

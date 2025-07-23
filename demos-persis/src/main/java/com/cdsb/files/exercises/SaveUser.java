@@ -94,9 +94,9 @@ public class SaveUser {
         return sb.toString();
     }
     public static void main(String[] args) {
-        SaveUser user = new SaveUser(String pathName);
-        user.askUserData(pathName);
-        user.saveUserData(pathName);
-        user.readUserData("demos-persis/resources/sample.txt");
+        SaveUser user = new SaveUser("demos-persis/resources/sample.txt");
+        user.askUserData();
+        user.saveUserData();
+        user.readUserData();
     }
 }

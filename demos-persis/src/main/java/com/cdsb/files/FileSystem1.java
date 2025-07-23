@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public abstract class FileSystem {
+public abstract class FileSystem1 {
 
     private static String[] messages = {
         "Directory %s does not exist",
@@ -29,41 +29,42 @@ public abstract class FileSystem {
         "Error reading file: %s"
     };
 
-    public static String listFiles(String pathName) {
+    public static void listFiles(String pathName) {
         // El objeto File representa un archivo o directorio en el sistema de archivos.
        // Independientemente de si este existe o no.
         File file = new File(pathName);
-        File[] filesList;
-        StringBuilder sb  = new StringBuilder();
 
         if(!file.exists()) {
-            return messages[0].formatted(pathName);
+            System.out.println(messages[0].formatted(pathName));
+            return;
         }
         if(!file.isDirectory()) {
-            return messages [1].formatted(pathName);
+           System.out.println(messages [1].formatted(pathName));
+            return;
         }
-        filesList = file.listFiles();
+        File[] filesList = file.listFiles();
     
         if(filesList == null || filesList.length == 0) {
-            return messages[2].formatted(pathName);
+            System.out.println(messages[2].formatted(pathName));
+            return;
         }
     
         for (File fileItem : filesList) {
         char type = fileItem.isDirectory() ? 'D' : 'F';
-        sb.append("[%s] - %s".formatted(type, fileItem.getName()));
+        System.out.println("[%s] - %s".formatted(type, fileItem.getName()));
         }
-        return sb.toString();
     }
     //Crear carpetas
-    public static String createFolder(String pathName) {
+    public static void createFolder(String pathName) {
         File file = new File(pathName);
 
         if(file.exists() && file.isDirectory()) {
-            return messages[3].formatted(pathName);
-            
+            System.out.println(messages[3].formatted(pathName));
+            return;
         }
         if(file.exists() && !file.isDirectory()) {
-            return messages[4].formatted(pathName);
+            System.out.println(messages[4].formatted(pathName));
+            return;
         }
          // Para crear un directorio, debemos llamar al método mkdir() o mkdirs()
         // mkdir() crea un único directorio, mientras que mkdirs() crea todos los
@@ -71,9 +72,9 @@ public abstract class FileSystem {
         // Devuelven true o false dependiendo de si la operación fue exitosa o no.
 
         if(!file.mkdirs()){
-            return messages[5].formatted(pathName);
+            System.out.println(messages[5].formatted(pathName));
         }
-        return messages[6].formatted(pathName);
+        messages[6].formatted(pathName);
     }
 
     public static void deleteFolder(String pathName) {
@@ -181,5 +182,4 @@ public abstract class FileSystem {
         System.out.println("=".repeat(50));
         readFileToList(pathName);
     }
-}//TODO revisar
-
+}
