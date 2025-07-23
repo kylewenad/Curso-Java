@@ -3,8 +3,6 @@ package com.cdsb.files.exercises;
 import java.util.List;
 import java.util.Scanner;
 
-import com.cdsb.files.FileSystem;
-
 //Pregúntale al usuario:
 //Nombre
 //Apellido1

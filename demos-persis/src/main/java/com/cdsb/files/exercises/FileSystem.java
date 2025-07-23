@@ -1,4 +1,4 @@
-package com.cdsb.files;
+package com.cdsb.files.exercises;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -31,7 +31,7 @@ public abstract class FileSystem {
 
     public static String listFiles(String pathName) {
         // El objeto File representa un archivo o directorio en el sistema de archivos.
-       // Independientemente de si este existe o no.
+        // Independientemente de si este existe o no.
         File file = new File(pathName);
         File[] filesList;
         StringBuilder sb  = new StringBuilder();
@@ -65,7 +65,7 @@ public abstract class FileSystem {
         if(file.exists() && !file.isDirectory()) {
             return messages[4].formatted(pathName);
         }
-         // Para crear un directorio, debemos llamar al método mkdir() o mkdirs()
+        // Para crear un directorio, debemos llamar al método mkdir() o mkdirs()
         // mkdir() crea un único directorio, mientras que mkdirs() crea todos los
         // directorios necesarios en la ruta especificada.
         // Devuelven true o false dependiendo de si la operación fue exitosa o no.
@@ -76,54 +76,46 @@ public abstract class FileSystem {
         return messages[6].formatted(pathName);
     }
 
-    public static void deleteFolder(String pathName) {
+    public static String deleteFolder(String pathName) {
         File file = new File(pathName);
-
-        if(!file.exists()){
-            System.out.println(messages[7]. formatted(pathName));
-            return;
-        }
-
         char type = file.isDirectory() ? 'D' : 'F';
 
-        if (!file.delete()){
-            System.out.println("Failed to delete " + type + pathName);
-            return;
+        if(!file.exists()){
+            return messages[0].formatted(pathName);
         }
-        System.out.println(messages[9].formatted(pathName));
+
+        if (!file.delete()){
+            return messages[7].formatted(type, pathName);
+        }
+        return messages[9].formatted(pathName);
     }
 
-    public static void createFile(String pathName) {
+    public static String createFile(String pathName) {
         File file = new File(pathName);
         
         if(file.exists() && file.isDirectory()) {
-            System.out.println(messages[10].formatted(pathName));
-            return;
+            return messages[10].formatted(pathName);
         }
 
         if(file.exists() && !file.isDirectory()) {
-            System.out.println(messages[4].formatted(pathName));
-            return;
+            return messages[4].formatted(pathName);
         }
 
         try {
             if(!file.createNewFile()) {
-                System.out.println(messages[9].formatted(pathName));
-                return;
+                return messages[9].formatted(pathName);
             }
         } catch (Exception e) {
-            System.err.println("Error creating file: " + pathName);
-            return;
+            return messages[9].formatted(pathName);
         }
         // If the file is created successfully, we can write to it.
         // For now, we just print a message.
         // In a real application, we would write to the file here.
-        System.out.println("File " + pathName + " created.");
+        return messages[10].formatted(pathName);
     }
 
     public static String writeFile(String pathName, String content) {
         
-
         if(content == null || content.isEmpty()) {
             return messages[11].formatted(pathName);
         }
@@ -139,33 +131,46 @@ public abstract class FileSystem {
     public static List<String> readFileToList(String pathName) {
         File file = new File(pathName);
         List<String> lines = new ArrayList<>();
-        StringBuilder sb = new StringBuilder();
 
         if (!file.exists()) {
-            System.out.println(messages[14].formatted(pathName));
+            lines.add(messages[14].formatted(pathName));
             return lines;
         }
+
         try (Scanner scanner = new Scanner (file)){
             // Scanner es utilizado para leer el archivo línea por línea.
             // Lanza FileNotFoundException si el archivo no existe o 
             // si ha habido algún error leyendo el archivo.
             while (scanner.hasNextLine()){
                 String line = scanner.nextLine();
-                System.out.println(line);
                 lines.add(line);
-                sb.append(line);
-                sb.append("\n");
             }
-            System.out.println("Read file: " + pathName);
         } catch (FileNotFoundException e) {
-            System.out.println("Error reading file: " + pathName);
+            lines.add(messages[15].formatted(pathName));
             return lines;
         }
-        System.out.println(lines);
-        System.out.println(sb.toString());
         return lines;
     }
 
+    public static String readFileToString(String pathName) {
+        File file = new File(pathName);
+        StringBuilder sb = new StringBuilder();
+
+        if (!file.exists()) {
+            return messages[14].formatted(pathName);
+        }
+
+        try (Scanner scanner = new Scanner(file)) {
+            while (scanner.hasNextLine()){
+                String line = scanner.nextLine();
+                sb.append(line);
+                sb.append("\n");
+            }
+        } catch (FileNotFoundException e) {
+            return messages[15].formatted(pathName);
+        }
+        return sb.toString();
+    }
     public static void main(String[] args) {
         String pathName = "demos-persis";
         //pathName = "demos-persis/resources"
@@ -173,13 +178,13 @@ public abstract class FileSystem {
         listFiles(pathName);
         createFolder(pathName);
         deleteFolder(pathName);
-        pathName = "demos_fault";
-        deleteFolder(pathName);
-        pathName = "demos-persis/resources/sample.txt";
-        createFile(pathName);
-        writeFile(pathName, "Hola \nAdiós");
-        System.out.println("=".repeat(50));
-        readFileToList(pathName);
+        //pathName = "demos_fault";
+        //deleteFolder(pathName);
+        //pathName = "demos-persis/resources/sample.txt";
+        //createFile(pathName);
+        //writeFile(pathName, "Hola \nAdiós");
+        //System.out.println("=".repeat(50));
+        //readFileToList(pathName);
     }
 }//TODO revisar
 
