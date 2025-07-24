@@ -11,22 +11,9 @@ import java.util.Scanner;
 public abstract class FileSystem {
 
     private static String[] messages = {
-        "Directory %s does not exist",
-        "%s is not a directory",
-        "No files found in the directory: %s",
-        "Directory %s exist",
-        "File %s exist",
-        "Failed to create directory: ",
-        "Directory %s created",
-        "Failed to delete: %s %s",
-        "%s %s deleted.",
-        "Failed to created file: %s",
-        "File %s created.",
-        "Content empty, nothing to write to file: %s",
-        "Error writing file: %s",
-        "Writing to file %s: %s",
-        "File does not exist: %s",
-        "Error reading file: %s"
+        "[0][DIR_NOT_EXIST][DIR]Directory %s does not exist",
+        "[1][DIR_EXIST][DIR][DIR] Directory %s exist",
+        "[2][FIL_EXIST][FIL] %s File exist"
     };
 
     public static String listFiles(String pathName) {
@@ -172,12 +159,12 @@ public abstract class FileSystem {
         return sb.toString();
     }
     public static void main(String[] args) {
-        String pathName = "demos-persis";
+        String pathName = "demos-persis/resources";
         //pathName = "demos-persis/resources"
         //pathName = "demos-persis/pom.xml"
         listFiles(pathName);
-        createFolder(pathName);
-        deleteFolder(pathName);
+        //createFolder(pathName);
+        //deleteFolder(pathName);
         //pathName = "demos_fault";
         //deleteFolder(pathName);
         //pathName = "demos-persis/resources/sample.txt";

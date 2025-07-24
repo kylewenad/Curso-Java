@@ -4,9 +4,22 @@ import local.entities.Room;
 import local.repositories.RoomDAO;
 
 public class AppRooms {
-    
+    static RoomDAO dao = new RoomDAO();
+
+    private static void showRooms(){
+        System.out.println("Find All --------------------------------");
+        System.out.println(dao.findAll());
+
+        System.out.println("Find by name ------------------------");
+        System.out.println(dao.findByName("Sala principal"));
+
+        System.out.println("Find by capacity--------------------------");
+        System.out.println(dao.findByCapacity(5));
+    }
+
+    @SuppressWarnings("unused")
     private static void checkRoom(){
-        RoomDAO dao = new RoomDAO();
+        
         
         try {    
             dao.save(new Room("S0101", "Sala principal", 10));
@@ -47,7 +60,8 @@ public class AppRooms {
     
     public static void main(String[] args) {
         System.out.println("Persons application");
-        checkRoom();
+        //checkRoom();
+        showRooms();
     }
 
 }//TODO faltan cosas

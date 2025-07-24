@@ -1,5 +1,6 @@
 package local.repositories;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -12,19 +13,20 @@ public class MeetingDAO extends AbstractDAO<Meeting> {
         super(Meeting.class);
     }
 
-    public List<Meeting> findByDate(LocalDateTime date) {
+    public List<Meeting> findByDate(LocalDate date) {
         
-        String qs = "SELECT m FROM Meeting m WHERE m.date = :date";
+        String qs = "FROM Meeting m WHERE DATE(m.date) = ?1";
         //Query query0 = entityManager.createQuery(qs);//devuelve objetos
         TypedQuery<Meeting> query = entityManager.createQuery(qs,Meeting.class); //devuelve meetings
-        query.setParameter("date", date);//lo hace sql? inyección sql?
+        query.setParameter(1, date);//lo hace sql? inyección sql?
+        //return query.getResultList(); //lanza la consulta y devuelve la lista de reuniones
         return query.getResultList();
     }
 
-    public Meeting nextMeeting(){
+    public Meeting nextMeetingBasic(){
         String qs = "FROM " + Meeting.class.getCanonicalName()
-            + "WHERE date > :currentDate ORDER BY date ASC LIMIT 1"; //para que el resultado lo de por orden ascendente, LIMIT para que sólo devuelva un elemento
-        TypedQuery<Meeting> query = entityManager.createQuery(qs, Meeting.class);
+           + " WHERE date > :currentDate ORDER BY date ASC LIMIT 1"; //para que el resultado lo de por orden ascendente, LIMIT para que sólo devuelva un elemento
+        TypedQuery<Meeting> query = entityManager.createNamedQuery(qs, Meeting.class);
         query.setParameter("currentDate", LocalDateTime.now());
             return query.getSingleResult();
     }

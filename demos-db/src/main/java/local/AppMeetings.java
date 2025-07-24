@@ -1,5 +1,6 @@
 package local;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -12,8 +13,9 @@ public final class AppMeetings {
 
     static MeetingDAO meetingDAO = new MeetingDAO(); 
 
-    private static void checkMeetingInitial(){
-         
+    @SuppressWarnings("unused")
+    private static void checkMeetingInitial(){//firma qué hace la función no cómo lo hace
+         //implementación cómo lo hace
         Meeting m1 = meetingDAO.save(new Meeting ("Primera reunión", LocalDateTime.now().plusDays(2)));
         Meeting m2 = meetingDAO.save(new Meeting ("Segunda reunión", LocalDateTime.now().plusDays(3)));
     
@@ -60,9 +62,12 @@ public final class AppMeetings {
         System.out.println("Find All --------------------------------");
         System.out.println(meetingDAO.findAll());
 
+
         System.out.println("Find by date ------------------------------");
-        List<Meeting> m = meetingDAO.findByDate(LocalDateTime.of(2025, 07, 23, 0, 0, 0));
+        List<Meeting> m = meetingDAO.findByDate(LocalDate.of(2025,07,27));
         System.out.println(m);
-        
+        System.out.println("Next Meetings---------------------------------");
+        Meeting m1 = meetingDAO.nextMeetingBasic();
+        System.out.println(m1);
     }
 }
