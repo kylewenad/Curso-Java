@@ -5,8 +5,10 @@ import local.repositories.MeetingRecordDAO;
 
 public class AppMeetingRecords {
     
+    static MeetingRecordDAO dao = new MeetingRecordDAO();
+    
+    @SuppressWarnings("unused")
     private static void checkMeetingRecord(){
-        MeetingRecordDAO dao = new MeetingRecordDAO();
         
         dao.save(new MeetingRecord("Info de una reunión"));
         dao.save(new MeetingRecord("Info de otra reunión"));
@@ -39,10 +41,18 @@ public class AppMeetingRecords {
     
     }
     
-    
+    private static void showRecords(){
+        System.out.println("Find All --------------------------------");
+        System.out.println(dao.findAll());
+        System.out.println("Find by Id valid -----------------------------------------");
+        System.out.println(dao.findById(1));
+        System.out.println("Find by Id invalid-----------------------------");
+        System.out.println(dao.findById(100));
+    }
     public static void main(String[] args) {
         System.out.println("Persons application");
-        checkMeetingRecord();
+        //checkMeetingRecord();
+        showRecords();
     }
 //TODO revisar
 }

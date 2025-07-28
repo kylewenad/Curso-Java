@@ -12,8 +12,20 @@ public abstract class FileSystem {
 
     private static String[] messages = {
         "[0][DIR_NOT_EXIST][DIR]Directory %s does not exist",
-        "[1][DIR_EXIST][DIR][DIR] Directory %s exist",
-        "[2][FIL_EXIST][FIL] %s File exist"
+        "[1][DIR_EXIST][DIR] Directory %s exist",
+        "[2][FIL_EXIST][FIL] %s File exist",
+        "[3][FIL_NOT_FOUND][FIL] No files found in the directory: %s",
+        "[4][DIR_CREATE_FAIL][DIR] Failed to create directory: ",
+        "[5][DIR_CREATED][DIR] Directory %s created",
+        "[6][FAIL_DEL] Failed to delete: %s %s",
+        "[7][DEL_OK] %s %s deleted",
+        "[8][FIL_FAIL_CREATED][FIL] Failed to created file: %s",
+        "[9][FIL_CREATED][FIL] File %s created.",
+        "[10][EMPTY FILE][FIL] Content empty, nothing to write to file: %s",
+        "[11][ERROR_WRITE_FIL][FIL] Error writing file: %s",
+        "[12][FIL_WRITE_OK][FIL] Writing to file %s: %s",
+        "[13][FIL_NOT_EXIST][FIL]File does not exist: %s",
+        "[14][FIL_ERROR_READ][FIL] Error reading file: %s"
     };
 
     public static String listFiles(String pathName) {
@@ -24,10 +36,10 @@ public abstract class FileSystem {
         StringBuilder sb  = new StringBuilder();
 
         if(!file.exists()) {
-            return messages[0].formatted(pathName);
+            return messages[13].formatted(pathName);
         }
         if(!file.isDirectory()) {
-            return messages [1].formatted(pathName);
+            return messages [0].formatted(pathName);
         }
         filesList = file.listFiles();
     
@@ -133,7 +145,7 @@ public abstract class FileSystem {
                 lines.add(line);
             }
         } catch (FileNotFoundException e) {
-            lines.add(messages[15].formatted(pathName));
+            lines.add(messages[3].formatted(pathName));
             return lines;
         }
         return lines;
@@ -159,19 +171,19 @@ public abstract class FileSystem {
         return sb.toString();
     }
     public static void main(String[] args) {
-        String pathName = "demos-persis/resources";
+        String pathName = "demos-persis/resources/HOLA/QUETAL";
         //pathName = "demos-persis/resources"
         //pathName = "demos-persis/pom.xml"
-        listFiles(pathName);
+        //listFiles(pathName);
         //createFolder(pathName);
         //deleteFolder(pathName);
         //pathName = "demos_fault";
         //deleteFolder(pathName);
         //pathName = "demos-persis/resources/sample.txt";
-        //createFile(pathName);
-        //writeFile(pathName, "Hola \nAdiós");
-        //System.out.println("=".repeat(50));
-        //readFileToList(pathName);
+        createFile(pathName);
+        writeFile(pathName, "Hola, esto es una prueba \nAdiós");
+        System.out.println("=".repeat(50));
+        readFileToString(pathName);
     }
 }//TODO revisar
 

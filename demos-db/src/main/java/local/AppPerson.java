@@ -4,9 +4,15 @@ import local.entities.Person;
 import local.repositories.PersonDAO;
 
 public class AppPerson {
+
+    static PersonDAO dao = new PersonDAO();
+
+    private static void showPersons(){
+
+    }
     
     private static void checkPersons(){
-        PersonDAO dao = new PersonDAO();
+        
         
         dao.save(new Person("Pepe", "Perez","pp@sample.com"));
         dao.save(new Person("Luisa", "Gomez", "lg@sample.com"));
@@ -43,7 +49,8 @@ public class AppPerson {
     
     public static void main(String[] args) {
         System.out.println("Persons application");
-        checkPersons();
+        //checkPersons();
+        showPersons();
     }
 //TODO revisar
 }

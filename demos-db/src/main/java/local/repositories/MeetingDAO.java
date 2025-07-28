@@ -3,6 +3,7 @@ package local.repositories;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Optional;
 
 import jakarta.persistence.TypedQuery;
 import local.entities.Meeting;
@@ -23,11 +24,18 @@ public class MeetingDAO extends AbstractDAO<Meeting> {
         return query.getResultList();
     }
 
-    public Meeting nextMeetingBasic(){
-        String qs = "FROM " + Meeting.class.getCanonicalName()
+    public Optional<Meeting> nextMeetingBasic(){
+        
+        try {
+            String qs = "FROM " + Meeting.class.getCanonicalName()
            + " WHERE date > :currentDate ORDER BY date ASC LIMIT 1"; //para que el resultado lo de por orden ascendente, LIMIT para que sólo devuelva un elemento
         TypedQuery<Meeting> query = entityManager.createNamedQuery(qs, Meeting.class);
         query.setParameter("currentDate", LocalDateTime.now());
+        return Optional<T>.ofNullable(null);
+        } catch (Exception e) {
+            // TODO: handle exception
+        }
+        
             return query.getSingleResult();
     }
 
